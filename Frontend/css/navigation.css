@@ -1,0 +1,607 @@
+/**
+ * NxLife Zoom Booking
+ * Main Navigation
+ *
+ * Desktop  = Sidebar
+ * Mobile   = Bottom Navigation
+ */
+
+
+/* =========================================
+   BASE
+========================================= */
+
+.app-sidebar-brand {
+  display: none;
+}
+
+
+.app-navigation {
+
+  position: sticky;
+
+  top: 14px;
+
+  z-index: 300;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  margin:
+    0 auto 18px;
+
+  padding:
+    6px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    6px;
+
+  background:
+    rgba(255, 253, 249, 0.94);
+
+  border:
+    1px solid
+    rgba(55, 70, 65, 0.08);
+
+  border-radius:
+    16px;
+
+  box-shadow:
+    0 6px 22px
+    rgba(48, 58, 54, 0.06);
+
+  backdrop-filter:
+    blur(14px);
+}
+
+
+.app-nav-button {
+
+  min-width:
+    120px;
+
+  min-height:
+    46px;
+
+  height:
+    44px;
+
+  padding:
+    0 16px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    7px;
+
+  border:
+    0;
+
+  border-radius:
+    11px;
+
+  background:
+    transparent;
+
+  color:
+    var(--text);
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.2;
+
+  cursor:
+    pointer;
+
+  transition:
+    background 0.15s ease,
+    transform 0.12s ease;
+}
+
+
+.app-nav-button:hover {
+
+  background:
+    var(--surface-soft);
+}
+
+
+.app-nav-button:active {
+
+  transform:
+    scale(0.97);
+}
+
+
+.app-nav-button.active {
+
+  background:
+    var(--eucalyptus-soft);
+
+  color:
+    var(--eucalyptus-dark);
+}
+
+
+.app-nav-icon {
+
+  width:
+    20px;
+
+  height:
+    20px;
+
+  flex:
+    0 0 20px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  font-size:
+    16px;
+}
+
+
+.app-nav-icon svg {
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  stroke:
+    currentColor;
+
+  stroke-width:
+    1.8;
+
+  stroke-linecap:
+    round;
+
+  stroke-linejoin:
+    round;
+}
+
+
+.app-nav-label {
+
+  white-space:
+    nowrap;
+}
+
+
+/* =========================================
+   DESKTOP SIDEBAR
+========================================= */
+
+@media (min-width: 901px) {
+
+  body.home-mode
+  .app-shell {
+
+    padding:
+      0 28px 60px 238px;
+  }
+
+
+  .app-navigation {
+
+    position:
+      fixed;
+
+    top:
+      18px;
+
+    left:
+      18px;
+
+    bottom:
+      18px;
+
+    z-index:
+      900;
+
+    width:
+      fit-content;
+
+    max-width:
+      none;
+
+    margin:
+      0 auto 18px;
+
+    padding:
+      6px;
+
+    flex-direction:
+      column;
+
+    align-items:
+      center;
+
+    gap:
+      6px;
+
+    backdrop-filter:
+      blur(16px);
+  }
+
+
+  /* -----------------------------------------
+     BRAND
+  ----------------------------------------- */
+
+  .app-sidebar-brand {
+
+    padding:
+      8px 8px 16px;
+
+    margin-bottom:
+      7px;
+
+    display:
+      flex;
+
+    align-items:
+      center;
+
+    gap:
+      10px;
+
+    border-bottom:
+      1px solid
+      var(--border);
+  }
+
+
+  .app-sidebar-mark {
+
+    width:
+      38px;
+
+    height:
+      38px;
+
+    flex:
+      0 0 38px;
+
+    display:
+      grid;
+
+    place-items:
+      center;
+
+    border-radius:
+      12px;
+
+    background:
+      linear-gradient(
+        145deg,
+        #789d92,
+        #54776d
+      );
+
+    color:
+      white;
+
+    font-size:
+      18px;
+
+    font-weight:
+      800;
+
+    box-shadow:
+      0 7px 18px
+      rgba(79, 116, 106, 0.18);
+  }
+
+
+  .app-sidebar-copy {
+
+    min-width:
+      0;
+  }
+
+
+  .app-sidebar-copy strong {
+
+    display:
+      block;
+
+    font-size:
+      14px;
+  }
+
+
+  .app-sidebar-copy span {
+
+    display:
+      block;
+
+    margin-top:
+      2px;
+
+    color:
+      var(--text-soft);
+
+    font-size:
+      9px;
+
+    letter-spacing:
+      0.04em;
+  }
+
+
+  /* -----------------------------------------
+     MENU
+  ----------------------------------------- */
+
+  .app-nav-button {
+
+    width:
+      100%;
+
+    justify-content:
+      flex-start !important;
+
+    text-align:
+      left;
+
+    padding-left:
+      16px;
+  }
+
+
+  .app-nav-label {
+
+    text-align:
+      left;
+  }
+
+
+  .app-nav-help {
+
+    margin-top:
+      auto;
+
+    border-top:
+      1px solid
+      var(--border);
+
+    border-radius:
+      0 0 12px 12px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET + MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .app-sidebar-brand {
+
+    display:
+      none;
+  }
+
+
+  /*
+   * Help ใช้ปุ่ม ? บน Header
+   * ไม่เพิ่มเมนูที่ 5 ด้านล่าง
+   */
+  .app-nav-help {
+
+    display:
+      none !important;
+  }
+
+
+  .app-navigation {
+
+    position:
+      fixed;
+
+    top:
+      auto;
+
+    left:
+      14px;
+
+    right:
+      14px;
+
+    bottom:
+      10px;
+
+    z-index:
+      900;
+
+    width:
+      auto;
+
+    max-width:
+      none;
+
+    margin:
+      0;
+
+    padding:
+      5px;
+
+    display:
+      flex;
+
+    align-items:
+      stretch;
+
+    gap:
+      4px;
+
+    border-radius:
+      17px;
+
+    box-shadow:
+      0 10px 32px
+      rgba(45, 55, 51, 0.14);
+  }
+
+
+  .app-nav-button {
+
+    min-width:
+      0;
+
+    min-height:
+      56px;
+
+    flex:
+      1;
+
+    padding:
+      6px 3px;
+
+    flex-direction:
+      column;
+
+    gap:
+      3px;
+
+    border-radius:
+      12px;
+
+    font-size:
+      13px;
+  }
+
+
+  .app-nav-icon {
+
+    width:
+      21px;
+
+    height:
+      21px;
+
+    flex:
+      0 0 21px;
+  }
+
+
+  body.home-mode
+  .app-shell {
+
+    padding-bottom:
+      92px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .app-navigation {
+
+    left:
+      12px;
+
+    right:
+      12px;
+
+    bottom:
+      calc(
+        10px +
+        env(safe-area-inset-bottom)
+      );
+
+    z-index:
+      1100;
+
+    padding:
+      6px;
+
+    background:
+      rgba(255, 253, 249, 0.96);
+
+    box-shadow:
+      0 12px 36px
+      rgba(40, 48, 45, 0.16);
+
+    backdrop-filter:
+      blur(12px);
+  }
+
+
+  .app-nav-button {
+
+    min-width:
+      0;
+
+    min-height:
+      56px;
+
+    height:
+      48px;
+
+    padding:
+      0 8px;
+
+    flex:
+      1;
+
+    flex-direction:
+      column;
+
+    gap:
+      1px;
+
+    font-size:
+      9px;
+  }
+
+
+  .app-nav-icon {
+
+    width:
+      20px;
+
+    height:
+      20px;
+
+    flex:
+      0 0 20px;
+
+    font-size:
+      18px;
+  }
+
+}
