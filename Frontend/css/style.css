@@ -1620,9 +1620,7 @@ body.home-mode
    Tablet
 ========================================= */
 
-
-@media
-(max-width: 900px) {
+@media (max-width: 900px) {
 
   .rooms-grid {
 
@@ -1631,11 +1629,11 @@ body.home-mode
 
     gap:
       16px;
-
   }
 
 
   .home-user-mini strong {
+
     max-width:
       120px;
   }
@@ -1647,15 +1645,12 @@ body.home-mode
    Mobile
 ========================================= */
 
-
-@media
-(max-width: 700px) {
+@media (max-width: 700px) {
 
   .app-shell {
 
     padding:
       20px;
-
   }
 
 
@@ -1664,7 +1659,6 @@ body.home-mode
 
     padding:
       0 14px 46px;
-
   }
 
 
@@ -1672,7 +1666,6 @@ body.home-mode
 
     padding:
       2px 2px 0;
-
   }
 
 
@@ -1683,7 +1676,6 @@ body.home-mode
 
     align-items:
       start;
-
   }
 
 
@@ -1694,11 +1686,12 @@ body.home-mode
 
     border-radius:
       20px;
-
   }
 
 
-  /* Sticky Home Header */
+  /* -----------------------------------------
+     Home Header
+  ----------------------------------------- */
 
   .home-sticky-header {
 
@@ -1721,7 +1714,6 @@ body.home-mode
 
     backdrop-filter:
       blur(16px);
-
   }
 
 
@@ -1732,7 +1724,6 @@ body.home-mode
 
     gap:
       10px;
-
   }
 
 
@@ -1743,7 +1734,6 @@ body.home-mode
 
     font-size:
       9px;
-
   }
 
 
@@ -1754,7 +1744,6 @@ body.home-mode
 
     line-height:
       1.22;
-
   }
 
 
@@ -1762,182 +1751,6 @@ body.home-mode
 
     gap:
       6px;
-
-    font-size:
-      9px;
-
-  }
-
-
-  .home-user-mini strong {
-
-    max-width:
-      90px;
-
-    font-size:
-      10px;
-
-  }
-
-
-  .mini-lock-button {
-
-    padding:
-      5px 7px;
-
-    font-size:
-      9px;
-
-  }
-
-
-  /* Current Room always visible */
-
-  /* Rooms vertical */
-
-  .rooms-grid {
-
-    grid-template-columns:
-      1fr;
-
-    gap:
-      18px;
-
-    padding:
-      12px 0 35px;
-
-  }
-
-
-  .room-section {
-
-    scroll-margin-top:
-      170px;
-
-    border-radius:
-      18px;
-
-  }
-
-
-  .room-section-header {
-
-    min-height:
-      70px;
-
-    padding:
-      14px 15px;
-
-  }
-
-
-  .room-title {
-    font-size:
-      17px;
-  }
-
-
-  .room-eyebrow {
-    font-size:
-      9px;
-  }
-
-
-  .add-booking-button {
-
-    min-height:
-      35px;
-
-    padding:
-      0 10px;
-
-    font-size:
-      10px;
-
-  }
-
-
-  .room-timeline {
-
-    padding:
-      8px 15px 16px;
-
-  }
-
-
-  .timeline-item {
-
-    min-height:
-      75px;
-
-    padding:
-      11px 0;
-
-  }
-
-
-  .timeline-activity {
-    font-size:
-      13px;
-  }
-
-
-  .timeline-time {
-    font-size:
-      10px;
-  }
-
-
-  .room-empty-state {
-
-    min-height:
-      125px;
-
-    padding:
-      25px 10px;
-
-  }
-
-}
-
-
-/* =========================================
-   Very small mobile
-========================================= */
-
-
-@media
-(max-width: 390px) {
-
-  .nav-text {
-    font-size:
-      9px;
-  }
-
-
-  .home-user-mini
-  #userMiniName {
-
-    max-width:
-      65px;
-
-  }
-
-
-  .room-title {
-    font-size:
-      15px;
-  }
-
-}
-
-
-/* =========================================
-   MOBILE READABILITY
-========================================= */
-
-@media (max-width: 700px) {
-  .home-user-mini {
 
     font-size:
       11px;
@@ -1967,9 +1780,57 @@ body.home-mode
   }
 
 
-  /*
-   * Room add button
-   */
+  /* -----------------------------------------
+     Rooms
+  ----------------------------------------- */
+
+  .rooms-grid {
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      18px;
+
+    padding:
+      12px 0 35px;
+  }
+
+
+  .room-section {
+
+    scroll-margin-top:
+      170px;
+
+    border-radius:
+      18px;
+  }
+
+
+  .room-section-header {
+
+    min-height:
+      70px;
+
+    padding:
+      14px 15px;
+  }
+
+
+  .room-title {
+
+    font-size:
+      17px;
+  }
+
+
+  .room-eyebrow {
+
+    font-size:
+      9px;
+  }
+
+
   .add-booking-button {
 
     min-height:
@@ -1983,9 +1844,27 @@ body.home-mode
   }
 
 
-  /*
-   * Slightly larger timeline details
-   */
+  /* -----------------------------------------
+     Timeline
+  ----------------------------------------- */
+
+  .room-timeline {
+
+    padding:
+      8px 15px 16px;
+  }
+
+
+  .timeline-item {
+
+    min-height:
+      75px;
+
+    padding:
+      11px 0;
+  }
+
+
   .timeline-time {
 
     font-size:
@@ -2004,6 +1883,46 @@ body.home-mode
 
     font-size:
       10px;
+  }
+
+
+  .room-empty-state {
+
+    min-height:
+      125px;
+
+    padding:
+      25px 10px;
+  }
+
+}
+
+
+/* =========================================
+   Very Small Mobile
+========================================= */
+
+@media (max-width: 390px) {
+
+  .nav-text {
+
+    font-size:
+      9px;
+  }
+
+
+  .home-user-mini
+  #userMiniName {
+
+    max-width:
+      65px;
+  }
+
+
+  .room-title {
+
+    font-size:
+      15px;
   }
 
 }
