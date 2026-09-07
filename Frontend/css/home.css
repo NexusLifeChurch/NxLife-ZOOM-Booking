@@ -277,120 +277,8 @@
 
 
 /* =========================================
-   Mobile
+   MOBILE HEADER BASE
 ========================================= */
-
-@media (max-width: 700px) {
-
-  .home-sticky-header {
-
-    padding-bottom: 9px;
-  }
-
-
-  .date-navigator {
-
-    width: 100%;
-
-    margin-top: 10px;
-
-    padding: 5px;
-
-    display: grid;
-
-    grid-template-columns:
-      1fr
-      0.8fr
-      1fr
-      48px;
-
-    gap: 4px;
-
-    border-radius: 15px;
-  }
-
-
-  .date-nav-button {
-
-    min-width: 0;
-
-    width: 100%;
-
-    height: 48px;
-
-    padding:
-      0 6px;
-
-    font-size: 11px;
-
-    border-radius: 11px;
-  }
-
-
-  .nav-arrow {
-
-    font-size: 22px;
-  }
-
-
-  .date-calendar-button {
-
-    width: 48px;
-
-    height: 48px;
-
-    border-radius: 11px;
-  }
-
-
-  .native-date-picker {
-
-    right: 24px;
-  }
-
-
-  .home-date-area h1 {
-
-    margin-bottom: 0;
-  }
-
-}
-
-
-/* =========================================
-   Very Small Mobile
-========================================= */
-
-@media (max-width: 390px) {
-
-  .date-nav-button {
-
-    font-size: 10px;
-  }
-
-
-  .date-navigator {
-
-    grid-template-columns:
-      1fr
-      0.78fr
-      1fr
-      46px;
-  }
-
-
-  .date-calendar-button {
-
-    width: 46px;
-    height: 48px;
-  }
-
-}
-
-/* =========================================
-   MOBILE HEADER V2
-========================================= */
-
 
 /*
  * Mobile date label.
@@ -421,9 +309,20 @@
 
 
   /* -----------------------------------------
-     Remove redundant title/date header
+     Header
   ----------------------------------------- */
 
+  .home-sticky-header {
+
+    padding-bottom:
+      9px;
+  }
+
+
+  /*
+   * Desktop date title is not needed
+   * on Mobile.
+   */
   .home-date-area {
 
     display:
@@ -439,32 +338,32 @@
 
 
   /* -----------------------------------------
-     UserName · Role     Refresh Lock
+     User / Refresh / Help / Lock
   ----------------------------------------- */
 
-.home-user-mini {
+  .home-user-mini {
 
-  width:
-    100%;
+    width:
+      100%;
 
-  display:
-    grid;
+    display:
+      grid;
 
-  grid-template-columns:
-    minmax(0, 1fr)
-    34px
-    34px
-    34px;
+    grid-template-columns:
+      minmax(0, 1fr)
+      34px
+      34px
+      34px;
 
-  align-items:
-    center;
+    align-items:
+      center;
 
-  gap:
-    6px;
+    gap:
+      6px;
 
-  text-align:
-    left;
-}
+    text-align:
+      left;
+  }
 
 
   .home-user-info {
@@ -553,7 +452,7 @@
   /* -----------------------------------------
      Date Navigator
 
-     ‹   จันทร์ที่ 7 กันยายน   ›   Calendar
+     ‹   วันที่   ›   Calendar
   ----------------------------------------- */
 
   .date-navigator {
@@ -578,12 +477,26 @@
 
     gap:
       3px;
+
+    background:
+      #f7f4ee;
+
+    border:
+      1px solid
+      rgba(67, 83, 77, 0.10);
+
+    border-radius:
+      18px;
+
+    box-shadow:
+      0 6px 18px
+      rgba(48, 58, 54, 0.05);
   }
 
 
   /*
-   * Today is available from Date Picker,
-   * so hide dedicated Today button on mobile.
+   * Today is available from Date Picker.
+   * Hide dedicated Today button on Mobile.
    */
   .today-button {
 
@@ -595,7 +508,8 @@
   /*
    * Previous / Next show arrows only.
    */
-  .date-nav-button .nav-text {
+  .date-nav-button
+  .nav-text {
 
     display:
       none;
@@ -611,17 +525,26 @@
       100%;
 
     height:
-      46px;
+      50px;
 
     padding:
       0;
+
+    border-radius:
+      11px;
+
+    font-size:
+      11px;
   }
 
 
   .nav-arrow {
 
     font-size:
-      25px;
+      28px;
+
+    color:
+      #3b4a45;
   }
 
 
@@ -634,10 +557,10 @@
       0;
 
     height:
-      46px;
+      50px;
 
     padding:
-      0 6px;
+      0 8px;
 
     display:
       flex;
@@ -652,16 +575,19 @@
       hidden;
 
     color:
-      var(--text);
+      #24312d;
 
     font-size:
-      13px;
+      17px;
 
     font-weight:
-      750;
+      800;
 
     line-height:
       1.25;
+
+    letter-spacing:
+      -0.01em;
 
     text-align:
       center;
@@ -671,90 +597,6 @@
 
     text-overflow:
       ellipsis;
-  }
-
-
-  .date-calendar-button {
-
-    width:
-      48px;
-
-    height:
-      46px;
-  }
-
-}
-
-
-/* =========================================
-   VERY SMALL MOBILE
-========================================= */
-
-@media (max-width: 390px) {
-
-  .date-nav-label {
-
-    font-size:
-      12px;
-  }
-
-
-  .home-user-mini strong {
-
-    max-width:
-      135px;
-  }
-
-}
-
-/* =========================================
-   MOBILE HEADER TUNING
-========================================= */
-
-@media (max-width: 700px) {
-
-  .date-navigator {
-
-    background:
-      #f7f4ee;
-
-    border:
-      1px solid rgba(67, 83, 77, 0.10);
-
-    border-radius:
-      18px;
-
-    box-shadow:
-      0 6px 18px rgba(48, 58, 54, 0.05);
-  }
-
-
-  .date-nav-label {
-
-    height:
-      50px;
-
-    padding:
-      0 8px;
-
-    color:
-      #24312d;
-
-    font-size:
-      17px;
-
-    font-weight:
-      800;
-
-    letter-spacing:
-      -0.01em;
-  }
-
-
-  .date-nav-button {
-
-    height:
-      50px;
   }
 
 
@@ -774,22 +616,9 @@
   }
 
 
-  .nav-arrow {
-
-    font-size:
-      28px;
-
-    color:
-      #3b4a45;
-  }
-
-}
-
-/* =========================================
-   MOBILE VISUAL POLISH
-========================================= */
-
-@media (max-width: 700px) {
+  /* -----------------------------------------
+     Home Visual Polish
+  ----------------------------------------- */
 
   .add-booking-button {
 
@@ -815,7 +644,9 @@
 
     color:
       #26322f;
-    font-weight: 700;
+
+    font-weight:
+      700;
   }
 
 
@@ -829,6 +660,28 @@
 
     font-weight:
       700;
+  }
+
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 390px) {
+
+  .date-nav-button {
+
+    font-size:
+      10px;
+  }
+
+
+  .home-user-mini strong {
+
+    max-width:
+      135px;
   }
 
 }
