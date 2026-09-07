@@ -1,0 +1,14 @@
+# Do not push frontend to Google Apps Script
+frontend/**
+
+# Do not push Git files
+.git/**
+.gitignore
+
+# Documentation
+README.md
+
+# Local development files
+.vscode/**
+node_modules/**
+*.log

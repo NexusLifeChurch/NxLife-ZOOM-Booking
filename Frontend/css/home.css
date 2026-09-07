@@ -1,0 +1,868 @@
+/**
+ * NxLife Zoom Booking
+ * Home Timeline UI
+ */
+
+
+/* =========================================
+   Date Navigator
+========================================= */
+
+.date-navigator {
+
+  position: relative;
+
+  margin-top: 18px;
+
+  padding: 6px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  background:
+    rgba(255, 253, 249, 0.94);
+
+  border:
+    1px solid
+    rgba(55, 70, 65, 0.09);
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 7px 24px
+    rgba(56, 65, 61, 0.06);
+}
+
+
+/* Real Action Buttons */
+
+.date-nav-button {
+
+  min-width: 105px;
+
+  height: 46px;
+
+  padding:
+    0 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  border: 0;
+
+  border-radius: 12px;
+
+  background:
+    transparent;
+
+  color:
+    var(--text);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transition:
+    background 0.15s ease,
+    transform 0.12s ease,
+    box-shadow 0.15s ease;
+}
+
+
+.date-nav-button:hover:not(:disabled) {
+
+  background:
+    var(--surface-soft);
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(55, 70, 65, 0.05);
+}
+
+
+.date-nav-button:active:not(:disabled) {
+
+  transform:
+    scale(0.96);
+}
+
+
+.date-nav-button:disabled {
+
+  cursor: default;
+
+  opacity: 0.28;
+}
+
+
+.date-nav-button:focus-visible,
+.date-calendar-button:focus-visible {
+
+  outline:
+    3px solid
+    rgba(102, 139, 128, 0.25);
+
+  outline-offset:
+    2px;
+}
+
+
+/* Today */
+
+.today-button {
+
+  color:
+    var(--eucalyptus-dark);
+}
+
+
+.today-button.active {
+
+  background:
+    var(--eucalyptus-soft);
+
+  color:
+    var(--eucalyptus-dark);
+}
+
+
+/* Arrows */
+
+.nav-arrow {
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   REAL Calendar Button
+========================================= */
+
+.date-calendar-button {
+
+  width: 48px;
+
+  height: 46px;
+
+  flex:
+    0 0 48px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 0;
+
+  border-radius: 12px;
+
+  background:
+    rgba(102, 139, 128, 0.08);
+
+  color:
+    var(--text);
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    transform 0.12s ease,
+    box-shadow 0.15s ease;
+}
+
+
+.date-calendar-button:hover {
+
+  background:
+    var(--eucalyptus-soft);
+}
+
+
+.date-calendar-button:active {
+
+  transform:
+    scale(0.95);
+}
+
+
+/*
+ * Native date input.
+ *
+ * IMPORTANT:
+ * - Does NOT cover Calendar button.
+ * - Does NOT receive pointer events.
+ * - Kept near Calendar button so native
+ *   popup positioning remains sensible.
+ */
+
+.native-date-picker {
+
+  position: absolute;
+
+  right: 24px;
+
+  top: 50%;
+
+  width: 1px;
+
+  height: 1px;
+
+  padding: 0;
+
+  margin: 0;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  border: 0;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   Zoom Room Header
+========================================= */
+
+.room-section-header {
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(102, 139, 128, 0.10),
+      rgba(102, 139, 128, 0.045)
+    );
+
+  border-bottom:
+    1px solid
+    rgba(102, 139, 128, 0.10);
+}
+
+
+.room-eyebrow {
+
+  color:
+    var(--eucalyptus-dark);
+}
+
+
+.add-booking-button {
+
+  background:
+    rgba(102, 139, 128, 0.14);
+
+  color:
+    var(--eucalyptus-dark);
+}
+
+
+.add-booking-button:hover {
+
+  background:
+    rgba(102, 139, 128, 0.21);
+}
+
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (max-width: 700px) {
+
+  .home-sticky-header {
+
+    padding-bottom: 9px;
+  }
+
+
+  .date-navigator {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 5px;
+
+    display: grid;
+
+    grid-template-columns:
+      1fr
+      0.8fr
+      1fr
+      48px;
+
+    gap: 4px;
+
+    border-radius: 15px;
+  }
+
+
+  .date-nav-button {
+
+    min-width: 0;
+
+    width: 100%;
+
+    height: 48px;
+
+    padding:
+      0 6px;
+
+    font-size: 11px;
+
+    border-radius: 11px;
+  }
+
+
+  .nav-arrow {
+
+    font-size: 22px;
+  }
+
+
+  .date-calendar-button {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 11px;
+  }
+
+
+  .native-date-picker {
+
+    right: 24px;
+  }
+
+
+  .home-date-area h1 {
+
+    margin-bottom: 0;
+  }
+
+}
+
+
+/* =========================================
+   Very Small Mobile
+========================================= */
+
+@media (max-width: 390px) {
+
+  .date-nav-button {
+
+    font-size: 10px;
+  }
+
+
+  .date-navigator {
+
+    grid-template-columns:
+      1fr
+      0.78fr
+      1fr
+      46px;
+  }
+
+
+  .date-calendar-button {
+
+    width: 46px;
+    height: 48px;
+  }
+
+}
+
+/* =========================================
+   MOBILE HEADER V2
+========================================= */
+
+
+/*
+ * Mobile date label.
+ * Hidden on Desktop.
+ */
+.date-nav-label {
+
+  display:
+    none;
+}
+
+
+.header-action-icon {
+
+  width:
+    18px;
+
+  height:
+    18px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+
+  /* -----------------------------------------
+     Remove redundant title/date header
+  ----------------------------------------- */
+
+  .home-date-area {
+
+    display:
+      none;
+  }
+
+
+  .home-header-main {
+
+    display:
+      block;
+  }
+
+
+  /* -----------------------------------------
+     UserName · Role     Refresh Lock
+  ----------------------------------------- */
+
+.home-user-mini {
+
+  width:
+    100%;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    34px
+    34px
+    34px;
+
+  align-items:
+    center;
+
+  gap:
+    6px;
+
+  text-align:
+    left;
+}
+
+
+  .home-user-info {
+
+    min-width:
+      0;
+
+    display:
+      flex;
+
+    align-items:
+      center;
+
+    gap:
+      4px;
+  }
+
+
+  .home-user-mini strong {
+
+    max-width:
+      160px;
+
+    overflow:
+      hidden;
+
+    text-overflow:
+      ellipsis;
+
+    white-space:
+      nowrap;
+
+    font-size:
+      12px;
+  }
+
+
+  .home-user-mini strong::after {
+
+    content:
+      " ·";
+
+    color:
+      var(--text-soft);
+
+    font-weight:
+      400;
+  }
+
+
+  .home-user-mini span {
+
+    margin:
+      0;
+
+    font-size:
+      11px;
+  }
+
+
+  .mini-lock-button {
+
+    width:
+      34px;
+
+    height:
+      34px;
+
+    min-height:
+      34px;
+
+    padding:
+      0;
+
+    display:
+      grid;
+
+    place-items:
+      center;
+
+    border-radius:
+      10px;
+  }
+
+
+  /* -----------------------------------------
+     Date Navigator
+
+     ‹   จันทร์ที่ 7 กันยายน   ›   Calendar
+  ----------------------------------------- */
+
+  .date-navigator {
+
+    width:
+      100%;
+
+    margin-top:
+      9px;
+
+    padding:
+      4px;
+
+    display:
+      grid;
+
+    grid-template-columns:
+      42px
+      minmax(0, 1fr)
+      42px
+      48px;
+
+    gap:
+      3px;
+  }
+
+
+  /*
+   * Today is available from Date Picker,
+   * so hide dedicated Today button on mobile.
+   */
+  .today-button {
+
+    display:
+      none;
+  }
+
+
+  /*
+   * Previous / Next show arrows only.
+   */
+  .date-nav-button .nav-text {
+
+    display:
+      none;
+  }
+
+
+  .date-nav-button {
+
+    min-width:
+      0;
+
+    width:
+      100%;
+
+    height:
+      46px;
+
+    padding:
+      0;
+  }
+
+
+  .nav-arrow {
+
+    font-size:
+      25px;
+  }
+
+
+  /*
+   * Selected date in the middle.
+   */
+  .date-nav-label {
+
+    min-width:
+      0;
+
+    height:
+      46px;
+
+    padding:
+      0 6px;
+
+    display:
+      flex;
+
+    align-items:
+      center;
+
+    justify-content:
+      center;
+
+    overflow:
+      hidden;
+
+    color:
+      var(--text);
+
+    font-size:
+      13px;
+
+    font-weight:
+      750;
+
+    line-height:
+      1.25;
+
+    text-align:
+      center;
+
+    white-space:
+      nowrap;
+
+    text-overflow:
+      ellipsis;
+  }
+
+
+  .date-calendar-button {
+
+    width:
+      48px;
+
+    height:
+      46px;
+  }
+
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 390px) {
+
+  .date-nav-label {
+
+    font-size:
+      12px;
+  }
+
+
+  .home-user-mini strong {
+
+    max-width:
+      135px;
+  }
+
+}
+
+/* =========================================
+   MOBILE HEADER TUNING
+========================================= */
+
+@media (max-width: 700px) {
+
+  .date-navigator {
+
+    background:
+      #f7f4ee;
+
+    border:
+      1px solid rgba(67, 83, 77, 0.10);
+
+    border-radius:
+      18px;
+
+    box-shadow:
+      0 6px 18px rgba(48, 58, 54, 0.05);
+  }
+
+
+  .date-nav-label {
+
+    height:
+      50px;
+
+    padding:
+      0 8px;
+
+    color:
+      #24312d;
+
+    font-size:
+      17px;
+
+    font-weight:
+      800;
+
+    letter-spacing:
+      -0.01em;
+  }
+
+
+  .date-nav-button {
+
+    height:
+      50px;
+  }
+
+
+  .date-calendar-button {
+
+    width:
+      50px;
+
+    height:
+      50px;
+
+    background:
+      #edf3ef;
+
+    border-radius:
+      14px;
+  }
+
+
+  .nav-arrow {
+
+    font-size:
+      28px;
+
+    color:
+      #3b4a45;
+  }
+
+}
+
+/* =========================================
+   MOBILE VISUAL POLISH
+========================================= */
+
+@media (max-width: 700px) {
+
+  .timeline-room-card {
+
+    border:
+      1px solid rgba(60, 76, 70, 0.08);
+
+    box-shadow:
+      0 10px 28px rgba(48, 58, 54, 0.05);
+  }
+
+
+  .timeline-room-header {
+
+    background:
+      #f3f7f4;
+  }
+
+
+  .timeline-room-label {
+
+    color:
+      #58796f;
+
+    font-weight:
+      800;
+  }
+
+
+  .timeline-room-name {
+
+    color:
+      #2c3935;
+  }
+
+
+  .add-booking-button {
+
+    background:
+      #e7f0ea;
+
+    color:
+      #527469;
+
+    font-weight:
+      800;
+  }
+
+
+  .timeline-time {
+
+    color:
+      #6b7873;
+  }
+
+
+  .timeline-activity {
+
+    color:
+      #26322f;
+    font-weight: 700;
+  }
+
+
+  .recurring-tag {
+
+    background:
+      #f2dfd7;
+
+    color:
+      #8b5f50;
+
+    font-weight:
+      700;
+  }
+
+}

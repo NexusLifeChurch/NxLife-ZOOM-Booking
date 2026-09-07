@@ -1,0 +1,3108 @@
+/* =========================================
+   NxLife Zoom Booking
+   Soft Minimal / Calm Modern
+========================================= */
+
+
+:root {
+
+  --bg:
+    #f5f2ec;
+
+  --surface:
+    #fffdf9;
+
+  --surface-soft:
+    #f9f7f2;
+
+  --text:
+    #27312e;
+
+  --text-soft:
+    #78817c;
+
+  --eucalyptus:
+    #668b80;
+
+  --eucalyptus-dark:
+    #4f746a;
+
+  --eucalyptus-soft:
+    #e6eeeb;
+
+  --terracotta:
+    #b97b63;
+
+  --terracotta-soft:
+    #f4e7e1;
+
+  --border:
+    rgba(55, 70, 65, 0.09);
+
+  --shadow:
+    0 18px 48px
+    rgba(56, 65, 61, 0.08);
+
+  --shadow-soft:
+    0 8px 30px
+    rgba(56, 65, 61, 0.06);
+
+  --radius-lg:
+    22px;
+
+  --radius-md:
+    16px;
+
+  --sticky-bg:
+    rgba(245, 242, 236, 0.94);
+
+}
+
+
+* {
+  box-sizing:
+    border-box;
+}
+
+
+html,
+body {
+
+  margin:
+    0;
+
+  min-height:
+    100%;
+
+}
+
+
+html {
+  scroll-behavior:
+    smooth;
+}
+
+
+body {
+
+  min-height:
+    100vh;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Noto Sans Thai",
+    Arial,
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(102, 139, 128, 0.09),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(185, 123, 99, 0.08),
+      transparent 34%
+    ),
+    var(--bg);
+
+  color:
+    var(--text);
+
+}
+
+
+button,
+input {
+
+  font:
+    inherit;
+
+}
+
+
+button {
+  cursor:
+    pointer;
+}
+
+
+.hidden {
+  display:
+    none !important;
+}
+
+
+/* =========================================
+   Main shell
+========================================= */
+
+
+.app-shell {
+
+  min-height:
+    100vh;
+
+  padding:
+    28px;
+
+}
+
+
+body.home-mode
+.app-shell {
+
+  padding:
+    0 28px 60px;
+
+}
+
+
+.brand-header {
+
+  max-width:
+    1120px;
+
+  margin:
+    0 auto;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+}
+
+
+.brand-mark {
+
+  width:
+    42px;
+
+  height:
+    42px;
+
+  border-radius:
+    14px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #789d92,
+      #54776d
+    );
+
+  color:
+    white;
+
+  font-size:
+    20px;
+
+  font-weight:
+    700;
+
+  box-shadow:
+    0 8px 24px
+    rgba(79, 116, 106, 0.20);
+
+}
+
+
+.brand-name {
+  font-weight:
+    700;
+}
+
+
+.brand-subtitle {
+
+  margin-top:
+    2px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    12px;
+
+}
+
+
+.main-wrapper {
+
+  min-height:
+    calc(100vh - 100px);
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  padding:
+    32px 0 70px;
+
+}
+
+
+body.home-mode
+.main-wrapper {
+
+  display:
+    block;
+
+  min-height:
+    100vh;
+
+  padding:
+    0;
+
+}
+
+
+/* =========================================
+   Auth
+========================================= */
+
+
+.auth-card {
+
+  width:
+    min(100%, 430px);
+
+  padding:
+    34px;
+
+  background:
+    rgba(255, 253, 249, 0.94);
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:
+    var(--radius-lg);
+
+  box-shadow:
+    var(--shadow);
+
+  animation:
+    cardIn 0.32s ease;
+
+}
+
+
+.auth-heading {
+
+  margin-bottom:
+    28px;
+
+}
+
+
+.eyebrow {
+
+  display:
+    inline-block;
+
+  margin-bottom:
+    10px;
+
+  color:
+    var(--eucalyptus-dark);
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.08em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.auth-heading h1 {
+
+  margin:
+    0 0 10px;
+
+  font-size:
+    clamp(
+      28px,
+      4vw,
+      36px
+    );
+
+  line-height:
+    1.15;
+
+  letter-spacing:
+    -0.04em;
+
+}
+
+
+.auth-heading p {
+
+  margin:
+    0;
+
+  color:
+    var(--text-soft);
+
+  line-height:
+    1.65;
+
+}
+
+
+/* =========================================
+   Form
+========================================= */
+
+
+.field {
+
+  margin-bottom:
+    18px;
+
+}
+
+
+.field label {
+
+  display:
+    block;
+
+  margin-bottom:
+    8px;
+
+  font-size:
+    13px;
+
+  font-weight:
+    650;
+
+}
+
+
+.field input {
+
+  width:
+    100%;
+
+  height:
+    52px;
+
+  padding:
+    0 15px;
+
+  border:
+    1px solid
+    rgba(66, 83, 77, 0.14);
+
+  border-radius:
+    14px;
+
+  outline:
+    none;
+
+  background:
+    #fff;
+
+  color:
+    var(--text);
+
+  font-size:
+    16px;
+
+  transition:
+    0.18s ease;
+
+}
+
+
+.field input:focus {
+
+  border-color:
+    rgba(102, 139, 128, 0.65);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(102, 139, 128, 0.10);
+
+}
+
+
+/* =========================================
+   Buttons
+========================================= */
+
+
+.primary-button,
+.secondary-button {
+
+  width:
+    100%;
+
+  min-height:
+    50px;
+
+  border:
+    0;
+
+  border-radius:
+    14px;
+
+  font-weight:
+    700;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+
+}
+
+
+.primary-button {
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--eucalyptus),
+      var(--eucalyptus-dark)
+    );
+
+  color:
+    white;
+
+  box-shadow:
+    0 9px 24px
+    rgba(79, 116, 106, 0.20);
+
+}
+
+
+.primary-button:hover {
+  transform:
+    translateY(-1px);
+}
+
+
+.primary-button:active,
+.secondary-button:active {
+  transform:
+    scale(0.98);
+}
+
+
+.primary-button:disabled,
+.text-button:disabled {
+  cursor:
+    wait;
+
+  opacity:
+    0.65;
+}
+
+
+.text-actions {
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  gap:
+    12px;
+
+  margin-top:
+    18px;
+
+}
+
+
+.text-button {
+
+  padding:
+    6px 2px;
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    var(--eucalyptus-dark);
+
+  font-size:
+    13px;
+
+  font-weight:
+    650;
+
+}
+
+
+.text-button.muted {
+  color:
+    var(--text-soft);
+}
+
+
+.helper-text {
+
+  margin:
+    18px 0 0;
+
+  color:
+    var(--text-soft);
+
+  text-align:
+    center;
+
+  font-size:
+    12px;
+
+  line-height:
+    1.6;
+
+}
+
+
+.saved-user {
+
+  margin:
+    -4px 0 22px;
+
+  padding:
+    14px 16px;
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  gap:
+    10px;
+
+  background:
+    var(--surface-soft);
+
+  border-radius:
+    14px;
+
+}
+
+
+.saved-user span {
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    12px;
+
+}
+
+
+.saved-user strong {
+
+  overflow-wrap:
+    anywhere;
+
+  font-size:
+    13px;
+
+}
+
+
+.verified-user {
+
+  margin-bottom:
+    24px;
+
+  padding:
+    16px;
+
+  background:
+    var(--eucalyptus-soft);
+
+  border-radius:
+    14px;
+
+}
+
+
+.verified-name {
+  font-weight:
+    700;
+}
+
+
+.verified-id {
+
+  margin-top:
+    4px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    12px;
+
+}
+
+
+/* =========================================
+   Home
+========================================= */
+
+
+.home-screen {
+
+  width:
+    min(100%, 1320px);
+
+  margin:
+    0 auto;
+
+}
+
+
+.home-sticky-header {
+
+  position:
+    sticky;
+
+  top:
+    0;
+
+  z-index:
+    100;
+
+  padding:
+    22px 0 14px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--bg) 0%,
+      var(--sticky-bg) 78%,
+      rgba(245, 242, 236, 0.78) 92%,
+      transparent 100%
+    );
+
+  backdrop-filter:
+    blur(14px);
+
+}
+
+
+.home-header-main {
+
+  display:
+    flex;
+
+  align-items:
+    flex-end;
+
+  justify-content:
+    space-between;
+
+  gap:
+    24px;
+
+}
+
+
+.home-eyebrow {
+
+  display:
+    block;
+
+  margin-bottom:
+    5px;
+
+  color:
+    var(--eucalyptus-dark);
+
+  font-size:
+    11px;
+
+  font-weight:
+    750;
+
+  letter-spacing:
+    0.08em;
+
+}
+
+
+.home-date-area h1 {
+
+  margin:
+    0;
+
+  font-size:
+    clamp(
+      25px,
+      3vw,
+      36px
+    );
+
+  line-height:
+    1.15;
+
+  letter-spacing:
+    -0.035em;
+
+}
+
+
+#dateSubTitle {
+
+  margin-top:
+    5px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    12px;
+
+}
+
+
+.home-user-mini {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    11px;
+
+  text-align:
+    right;
+
+}
+
+
+.home-user-mini strong {
+
+  display:
+    block;
+
+  max-width:
+    180px;
+
+  overflow:
+    hidden;
+
+  color:
+    var(--text);
+
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+
+  font-size:
+    12px;
+
+}
+
+
+.home-user-mini span {
+
+  display:
+    block;
+
+  margin-top:
+    1px;
+
+}
+
+
+.mini-lock-button {
+
+  padding:
+    7px 10px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    10px;
+
+  background:
+    rgba(255, 255, 255, 0.55);
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    11px;
+
+}
+
+
+/* =========================================
+   Date navigator
+========================================= */
+
+
+.date-navigator {
+
+  margin-top:
+    16px;
+
+  padding:
+    6px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  width:
+    fit-content;
+
+  gap:
+    4px;
+
+  background:
+    rgba(255, 253, 249, 0.88);
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    15px;
+
+  box-shadow:
+    0 5px 18px
+    rgba(56, 65, 61, 0.04);
+
+}
+
+
+.date-nav-button {
+
+  height:
+    38px;
+
+  padding:
+    0 13px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    7px;
+
+  border:
+    0;
+
+  border-radius:
+    10px;
+
+  background:
+    transparent;
+
+  color:
+    var(--text);
+
+  font-size:
+    12px;
+
+  font-weight:
+    650;
+
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+
+}
+
+
+.date-nav-button:hover:not(:disabled) {
+
+  background:
+    var(--surface-soft);
+
+}
+
+
+.date-nav-button:active:not(:disabled) {
+
+  transform:
+    scale(0.97);
+
+}
+
+
+.date-nav-button:disabled {
+
+  cursor:
+    default;
+
+  opacity:
+    0.28;
+
+}
+
+
+.today-button.active {
+
+  background:
+    var(--eucalyptus-soft);
+
+  color:
+    var(--eucalyptus-dark);
+
+}
+
+
+.nav-arrow {
+  font-size:
+    20px;
+
+  line-height:
+    1;
+}
+
+
+.date-picker-control {
+
+  position:
+    relative;
+
+  width:
+    40px;
+
+  height:
+    38px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  overflow:
+    hidden;
+
+  border-radius:
+    10px;
+
+  font-size:
+    16px;
+
+}
+
+
+.date-picker-control:hover {
+
+  background:
+    var(--surface-soft);
+
+}
+
+
+.date-picker-control input {
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  opacity:
+    0;
+
+  cursor:
+    pointer;
+
+}
+
+
+/* =========================================
+   Current mobile room
+========================================= */
+
+
+.current-room-indicator {
+
+  display:
+    none;
+
+}
+
+
+/* =========================================
+   Rooms
+========================================= */
+
+
+.rooms-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(360px, 1fr)
+    );
+
+  gap:
+    22px;
+
+  padding:
+    14px 0 50px;
+
+  transition:
+    opacity 0.18s ease;
+
+}
+
+
+.rooms-grid.is-loading {
+  opacity:
+    0.42;
+}
+
+
+.room-section {
+
+  min-width:
+    0;
+
+  overflow:
+    hidden;
+
+  background:
+    rgba(255, 253, 249, 0.94);
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:
+    20px;
+
+  box-shadow:
+    var(--shadow-soft);
+
+  animation:
+    roomIn 0.32s ease both;
+
+  animation-delay:
+    calc(
+      var(--room-index) *
+      55ms
+    );
+
+}
+
+
+.room-section-header {
+
+  min-height:
+    82px;
+
+  padding:
+    18px 20px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    14px;
+
+  border-bottom:
+    1px solid
+    rgba(55, 70, 65, 0.06);
+
+}
+
+
+.room-title-wrap {
+  min-width:
+    0;
+}
+
+
+.room-eyebrow {
+
+  display:
+    block;
+
+  margin-bottom:
+    4px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.08em;
+
+}
+
+
+.room-title {
+
+  margin:
+    0;
+
+  overflow:
+    hidden;
+
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+
+  font-size:
+    19px;
+
+  letter-spacing:
+    -0.02em;
+
+}
+
+
+.add-booking-button {
+
+  flex:
+    0 0 auto;
+
+  min-height:
+    38px;
+
+  padding:
+    0 13px;
+
+  border:
+    0;
+
+  border-radius:
+    12px;
+
+  background:
+    var(--eucalyptus-soft);
+
+  color:
+    var(--eucalyptus-dark);
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  transition:
+    0.15s ease;
+
+}
+
+
+.add-booking-button:hover {
+
+  transform:
+    translateY(-1px);
+
+  background:
+    #dce8e4;
+
+}
+
+
+.add-booking-button:active {
+
+  transform:
+    scale(0.97);
+
+}
+
+
+/* =========================================
+   Timeline
+========================================= */
+
+
+.room-timeline {
+
+  padding:
+    10px 20px 18px;
+
+}
+
+
+.timeline-item {
+
+  position:
+    relative;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    22px 1fr;
+
+  gap:
+    8px;
+
+  min-height:
+    78px;
+
+  padding:
+    12px 0;
+
+}
+
+
+.timeline-rail {
+
+  position:
+    relative;
+
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+}
+
+
+.timeline-rail::after {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    18px;
+
+  bottom:
+    -18px;
+
+  width:
+    1px;
+
+  background:
+    rgba(74, 96, 88, 0.12);
+
+}
+
+
+.timeline-item:last-child
+.timeline-rail::after {
+
+  display:
+    none;
+
+}
+
+
+.timeline-dot {
+
+  position:
+    relative;
+
+  z-index:
+    2;
+
+  width:
+    9px;
+
+  height:
+    9px;
+
+  margin-top:
+    4px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--eucalyptus);
+
+  box-shadow:
+    0 0 0 4px
+    var(--surface);
+
+}
+
+
+.timeline-recurring
+.timeline-dot {
+
+  background:
+    var(--terracotta);
+
+}
+
+
+.timeline-content {
+
+  min-width:
+    0;
+
+  padding-bottom:
+    3px;
+
+}
+
+
+.timeline-top-row {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    8px;
+
+}
+
+
+.timeline-time {
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  font-variant-numeric:
+    tabular-nums;
+
+}
+
+
+.recurring-tag {
+
+  padding:
+    3px 7px;
+
+  border-radius:
+    999px;
+
+  background:
+    var(--terracotta-soft);
+
+  color:
+    #98634f;
+
+  font-size:
+    9px;
+
+  font-weight:
+    750;
+
+}
+
+
+.timeline-activity {
+
+  margin-top:
+    4px;
+
+  color:
+    var(--text);
+
+  font-size:
+    14px;
+
+  font-weight:
+    650;
+
+  line-height:
+    1.45;
+
+}
+
+
+/* =========================================
+   Empty room
+========================================= */
+
+
+.room-empty-state {
+
+  min-height:
+    150px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    12px;
+
+  padding:
+    34px 16px;
+
+  color:
+    var(--text-soft);
+
+}
+
+
+.room-empty-icon {
+
+  width:
+    32px;
+
+  height:
+    32px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--eucalyptus-soft);
+
+  color:
+    var(--eucalyptus);
+
+  font-size:
+    18px;
+
+}
+
+
+.room-empty-text strong {
+
+  display:
+    block;
+
+  color:
+    var(--text);
+
+  font-size:
+    13px;
+
+}
+
+
+.room-empty-text span {
+
+  display:
+    block;
+
+  margin-top:
+    3px;
+
+  font-size:
+    11px;
+
+}
+
+
+/* =========================================
+   Loading / Error
+========================================= */
+
+
+.timeline-loading {
+
+  margin:
+    28px auto;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    10px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    12px;
+
+}
+
+
+.loading-spinner {
+
+  width:
+    18px;
+
+  height:
+    18px;
+
+  border:
+    2px solid
+    rgba(102, 139, 128, 0.16);
+
+  border-top-color:
+    var(--eucalyptus);
+
+  border-radius:
+    50%;
+
+  animation:
+    spin 0.7s linear infinite;
+
+}
+
+
+.timeline-error {
+
+  margin:
+    28px auto;
+
+  max-width:
+    460px;
+
+  padding:
+    20px;
+
+  border-radius:
+    16px;
+
+  background:
+    #f5e8e3;
+
+  text-align:
+    center;
+
+}
+
+
+.timeline-error p {
+
+  margin:
+    5px 0 14px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    12px;
+
+}
+
+
+.timeline-error button {
+
+  padding:
+    8px 14px;
+
+  border:
+    0;
+
+  border-radius:
+    10px;
+
+  background:
+    white;
+
+  color:
+    var(--text);
+
+  font-weight:
+    650;
+
+}
+
+
+/* =========================================
+   Toast
+========================================= */
+
+
+.toast {
+
+  position:
+    fixed;
+
+  left:
+    50%;
+
+  bottom:
+    28px;
+
+  z-index:
+    1000;
+
+  width:
+    max-content;
+
+  max-width:
+    calc(100vw - 36px);
+
+  padding:
+    13px 18px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius:
+    14px;
+
+  box-shadow:
+    0 14px 38px
+    rgba(30, 40, 36, 0.18);
+
+  color:
+    white;
+
+  font-size:
+    13px;
+
+  animation:
+    toastIn 0.24s ease;
+
+}
+
+
+.toast.success {
+  background:
+    #53786d;
+}
+
+
+.toast.error {
+  background:
+    #a85f52;
+}
+
+
+.toast.info {
+  background:
+    #5f6c68;
+}
+
+
+/* =========================================
+   Animation
+========================================= */
+
+
+@keyframes cardIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+@keyframes roomIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+@keyframes toastIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translate(-50%, 10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate(-50%, 0);
+  }
+
+}
+
+
+@keyframes spin {
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+
+}
+
+
+/* =========================================
+   Tablet
+========================================= */
+
+
+@media
+(max-width: 900px) {
+
+  .rooms-grid {
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:
+      16px;
+
+  }
+
+
+  .home-user-mini strong {
+    max-width:
+      120px;
+  }
+
+}
+
+
+/* =========================================
+   Mobile
+========================================= */
+
+
+@media
+(max-width: 700px) {
+
+  .app-shell {
+
+    padding:
+      20px;
+
+  }
+
+
+  body.home-mode
+  .app-shell {
+
+    padding:
+      0 14px 46px;
+
+  }
+
+
+  .brand-header {
+
+    padding:
+      2px 2px 0;
+
+  }
+
+
+  .main-wrapper {
+
+    padding:
+      26px 0 50px;
+
+    align-items:
+      start;
+
+  }
+
+
+  .auth-card {
+
+    padding:
+      27px 22px;
+
+    border-radius:
+      20px;
+
+  }
+
+
+  /* Sticky Home Header */
+
+  .home-sticky-header {
+
+    margin:
+      0 -14px;
+
+    padding:
+      13px 14px 9px;
+
+    background:
+      rgba(245, 242, 236, 0.97);
+
+    border-bottom:
+      1px solid
+      rgba(55, 70, 65, 0.06);
+
+    box-shadow:
+      0 5px 20px
+      rgba(55, 70, 65, 0.035);
+
+    backdrop-filter:
+      blur(16px);
+
+  }
+
+
+  .home-header-main {
+
+    align-items:
+      flex-start;
+
+    gap:
+      10px;
+
+  }
+
+
+  .home-eyebrow {
+
+    margin-bottom:
+      3px;
+
+    font-size:
+      9px;
+
+  }
+
+
+  .home-date-area h1 {
+
+    font-size:
+      19px;
+
+    line-height:
+      1.22;
+
+  }
+
+
+  #dateSubTitle {
+
+    margin-top:
+      3px;
+
+    font-size:
+      10px;
+
+  }
+
+
+  .home-user-mini {
+
+    gap:
+      6px;
+
+    font-size:
+      9px;
+
+  }
+
+
+  .home-user-mini strong {
+
+    max-width:
+      90px;
+
+    font-size:
+      10px;
+
+  }
+
+
+  .mini-lock-button {
+
+    padding:
+      5px 7px;
+
+    font-size:
+      9px;
+
+  }
+
+
+  /* Navigator always visible */
+
+  .date-navigator {
+
+    width:
+      100%;
+
+    margin-top:
+      10px;
+
+    padding:
+      4px;
+
+    display:
+      grid;
+
+    grid-template-columns:
+      1fr 0.85fr 1fr 38px;
+
+    gap:
+      3px;
+
+    border-radius:
+      13px;
+
+  }
+
+
+  .date-nav-button {
+
+    width:
+      100%;
+
+    height:
+      36px;
+
+    justify-content:
+      center;
+
+    padding:
+      0 5px;
+
+    font-size:
+      10px;
+
+  }
+
+
+  .nav-arrow {
+    font-size:
+      18px;
+  }
+
+
+  .date-picker-control {
+
+    width:
+      38px;
+
+    height:
+      36px;
+  }
+
+
+  /* Current Room always visible */
+
+  .current-room-indicator {
+
+    margin-top:
+      7px;
+
+    min-height:
+      29px;
+
+    padding:
+      5px 9px;
+
+    display:
+      flex;
+
+    align-items:
+      center;
+
+    gap:
+      7px;
+
+    overflow:
+      hidden;
+
+    border-radius:
+      9px;
+
+    background:
+      rgba(102, 139, 128, 0.09);
+
+  }
+
+
+  .current-room-indicator span {
+
+    flex:
+      0 0 auto;
+
+    color:
+      var(--text-soft);
+
+    font-size:
+      9px;
+
+  }
+
+
+  .current-room-indicator strong {
+
+    overflow:
+      hidden;
+
+    color:
+      var(--eucalyptus-dark);
+
+    text-overflow:
+      ellipsis;
+
+    white-space:
+      nowrap;
+
+    font-size:
+      10px;
+
+  }
+
+
+  /* Rooms vertical */
+
+  .rooms-grid {
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      18px;
+
+    padding:
+      12px 0 35px;
+
+  }
+
+
+  .room-section {
+
+    scroll-margin-top:
+      170px;
+
+    border-radius:
+      18px;
+
+  }
+
+
+  .room-section-header {
+
+    min-height:
+      70px;
+
+    padding:
+      14px 15px;
+
+  }
+
+
+  .room-title {
+    font-size:
+      17px;
+  }
+
+
+  .room-eyebrow {
+    font-size:
+      9px;
+  }
+
+
+  .add-booking-button {
+
+    min-height:
+      35px;
+
+    padding:
+      0 10px;
+
+    font-size:
+      10px;
+
+  }
+
+
+  .room-timeline {
+
+    padding:
+      8px 15px 16px;
+
+  }
+
+
+  .timeline-item {
+
+    min-height:
+      75px;
+
+    padding:
+      11px 0;
+
+  }
+
+
+  .timeline-activity {
+    font-size:
+      13px;
+  }
+
+
+  .timeline-time {
+    font-size:
+      10px;
+  }
+
+
+  .room-empty-state {
+
+    min-height:
+      125px;
+
+    padding:
+      25px 10px;
+
+  }
+
+}
+
+
+/* =========================================
+   Very small mobile
+========================================= */
+
+
+@media
+(max-width: 390px) {
+
+  .nav-text {
+    font-size:
+      9px;
+  }
+
+
+  .home-user-mini
+  #userMiniName {
+
+    max-width:
+      65px;
+
+  }
+
+
+  .room-title {
+    font-size:
+      15px;
+  }
+
+}
+
+/* =========================================
+   APP NAVIGATION
+========================================= */
+
+.app-navigation {
+
+  position:
+    sticky;
+
+  top:
+    14px;
+
+  z-index:
+    300;
+
+  width:
+    max-content;
+
+  max-width:
+    100%;
+
+  margin:
+    14px auto 18px;
+
+  padding:
+    6px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    4px;
+
+  background:
+    rgba(255, 253, 249, 0.94);
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:
+    16px;
+
+  box-shadow:
+    0 8px 28px
+    rgba(56, 65, 61, 0.07);
+
+  backdrop-filter:
+    blur(14px);
+}
+
+
+.app-nav-button {
+
+  min-width:
+    112px;
+
+  min-height:
+    46px;
+
+  padding:
+    7px 14px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    8px;
+
+  border:
+    0;
+
+  border-radius:
+    11px;
+
+  background:
+    transparent;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.2;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.12s ease;
+}
+
+
+.app-nav-button:hover {
+
+  background:
+    var(--surface-soft);
+
+  color:
+    var(--text);
+}
+
+
+.app-nav-button:active {
+
+  transform:
+    scale(0.97);
+}
+
+
+.app-nav-button.active {
+
+  background:
+    var(--eucalyptus-soft);
+
+  color:
+    var(--eucalyptus-dark);
+}
+
+
+.app-nav-icon {
+
+  width:
+    20px;
+
+  height:
+    20px;
+
+  flex:
+    0 0 20px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+}
+
+
+.app-nav-icon svg {
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  stroke:
+    currentColor;
+
+  stroke-width:
+    1.8;
+
+  stroke-linecap:
+    round;
+
+  stroke-linejoin:
+    round;
+}
+
+
+.app-nav-label {
+
+  white-space:
+    nowrap;
+}
+
+
+/* =========================================
+   MOBILE NAVIGATION + READABILITY
+========================================= */
+
+@media (max-width: 700px) {
+
+  /*
+   * Bottom navigation
+   */
+  .app-navigation {
+
+    position:
+      fixed;
+
+    top:
+      auto;
+
+    left:
+      14px;
+
+    right:
+      14px;
+
+    bottom:
+      10px;
+
+    z-index:
+      900;
+
+    width:
+      auto;
+
+    margin:
+      0;
+
+    padding:
+      5px;
+
+    display:
+      grid;
+
+    grid-template-columns:
+      repeat(4, 1fr);
+
+    gap:
+      4px;
+
+    border-radius:
+      17px;
+
+    box-shadow:
+      0 10px 32px
+      rgba(45, 55, 51, 0.14);
+  }
+
+
+  .app-nav-button {
+
+    min-width:
+      0;
+
+    min-height:
+      56px;
+
+    padding:
+      6px 3px;
+
+    flex-direction:
+      column;
+
+    gap:
+      3px;
+
+    border-radius:
+      12px;
+
+    font-size:
+      14px;
+
+    font-weight:
+      700;
+  }
+
+
+  .app-nav-icon {
+
+    width:
+      21px;
+
+    height:
+      21px;
+
+    flex-basis:
+      21px;
+  }
+
+
+  /*
+   * Make room for bottom navigation
+   */
+  body.home-mode
+  .app-shell {
+
+    padding-bottom:
+      92px;
+  }
+
+
+  /*
+   * User + Role
+   */
+  .home-user-mini {
+
+    font-size:
+      11px;
+  }
+
+
+  .home-user-mini strong {
+
+    max-width:
+      100px;
+
+    font-size:
+      12px;
+  }
+
+
+  .mini-lock-button {
+
+    min-height:
+      34px;
+
+    padding:
+      5px 9px;
+
+    font-size:
+      11px;
+  }
+
+
+  /*
+   * Room add button
+   */
+  .add-booking-button {
+
+    min-height:
+      40px;
+
+    padding:
+      0 12px;
+
+    font-size:
+      12px;
+  }
+
+
+  /*
+   * Slightly larger timeline details
+   */
+  .timeline-time {
+
+    font-size:
+      11px;
+  }
+
+
+  .timeline-activity {
+
+    font-size:
+      14px;
+  }
+
+
+  .recurring-tag {
+
+    font-size:
+      10px;
+  }
+
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 390px) {
+
+  .app-nav-button {
+
+    font-size:
+      13px;
+  }
+
+
+  .app-nav-icon {
+
+    width:
+      20px;
+
+    height:
+      20px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE - HIDE CURRENT ROOM INDICATOR
+========================================= */
+
+@media (max-width: 700px) {
+
+  .current-room-indicator {
+
+    display:
+      none !important;
+
+  }
+
+}
+
+/* =========================================
+   DESKTOP SIDEBAR V1
+========================================= */
+
+.app-sidebar-brand {
+
+  display:
+    none;
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 901px) {
+
+  /*
+   * Reserve space for fixed sidebar.
+   */
+  body.home-mode
+  .app-shell {
+
+    padding:
+      0 28px 60px 238px;
+  }
+
+
+  /*
+   * Main navigation becomes sidebar.
+   */
+  .app-navigation {
+
+    position:
+      fixed;
+
+    top:
+      18px;
+
+    left:
+      18px;
+
+    bottom:
+      18px;
+
+    z-index:
+      900;
+
+    width:
+      200px;
+
+    max-width:
+      none;
+
+    margin:
+      0;
+
+    padding:
+      12px 10px;
+
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+    gap:
+      5px;
+
+    background:
+      rgba(255, 253, 249, 0.94);
+
+    border:
+      1px solid
+      var(--border);
+
+    border-radius:
+      22px;
+
+    box-shadow:
+      0 14px 38px
+      rgba(45, 55, 51, 0.10);
+
+    backdrop-filter:
+      blur(16px);
+  }
+
+
+  /* -----------------------------------------
+     SIDEBAR BRAND
+  ----------------------------------------- */
+
+  .app-sidebar-brand {
+
+    padding:
+      8px 8px 16px;
+
+    margin-bottom:
+      7px;
+
+    display:
+      flex;
+
+    align-items:
+      center;
+
+    gap:
+      10px;
+
+    border-bottom:
+      1px solid
+      var(--border);
+  }
+
+
+  .app-sidebar-mark {
+
+    width:
+      38px;
+
+    height:
+      38px;
+
+    flex:
+      0 0 38px;
+
+    display:
+      grid;
+
+    place-items:
+      center;
+
+    border-radius:
+      12px;
+
+    background:
+      linear-gradient(
+        145deg,
+        #789d92,
+        #54776d
+      );
+
+    color:
+      white;
+
+    font-size:
+      18px;
+
+    font-weight:
+      800;
+
+    box-shadow:
+      0 7px 18px
+      rgba(79, 116, 106, 0.18);
+  }
+
+
+  .app-sidebar-copy {
+
+    min-width:
+      0;
+  }
+
+
+  .app-sidebar-copy strong {
+
+    display:
+      block;
+
+    font-size:
+      14px;
+  }
+
+
+  .app-sidebar-copy span {
+
+    display:
+      block;
+
+    margin-top:
+      2px;
+
+    color:
+      var(--text-soft);
+
+    font-size:
+      9px;
+
+    letter-spacing:
+      0.04em;
+  }
+
+
+  /* -----------------------------------------
+     SIDEBAR MENU BUTTONS
+  ----------------------------------------- */
+
+  .app-nav-button {
+
+    width:
+      100%;
+
+    min-width:
+      0;
+
+    min-height:
+      46px;
+
+    padding:
+      9px 12px;
+
+    justify-content:
+      flex-start;
+
+    gap:
+      10px;
+
+    border-radius:
+      12px;
+
+    font-size:
+      13px;
+  }
+
+
+  .app-nav-icon {
+
+    width:
+      20px;
+
+    height:
+      20px;
+
+    flex:
+      0 0 20px;
+  }
+
+
+  /*
+   * Help stays at bottom of sidebar.
+   */
+  .app-nav-help {
+
+    margin-top:
+      auto;
+
+    border-top:
+      1px solid
+      var(--border);
+
+    border-radius:
+      0 0 12px 12px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET + MOBILE
+   Keep Bottom Navigation
+========================================= */
+
+@media (max-width: 900px) {
+
+  .app-sidebar-brand {
+
+    display:
+      none;
+  }
+
+
+  /*
+   * Help is available from ? icon
+   * in the Home header.
+   * Do not add a fifth bottom menu item.
+   */
+  .app-nav-help {
+
+    display:
+      none !important;
+  }
+
+
+  .app-navigation {
+
+    position:
+      fixed;
+
+    top:
+      auto;
+
+    left:
+      14px;
+
+    right:
+      14px;
+
+    bottom:
+      10px;
+
+    z-index:
+      900;
+
+    width:
+      auto;
+
+    max-width:
+      none;
+
+    margin:
+      0;
+
+    padding:
+      5px;
+
+    display:
+      flex;
+
+    align-items:
+      stretch;
+
+    gap:
+      4px;
+
+    border-radius:
+      17px;
+
+    box-shadow:
+      0 10px 32px
+      rgba(45, 55, 51, 0.14);
+  }
+
+
+  .app-nav-button {
+
+    min-width:
+      0;
+
+    min-height:
+      56px;
+
+    flex:
+      1;
+
+    padding:
+      6px 3px;
+
+    flex-direction:
+      column;
+
+    gap:
+      3px;
+
+    border-radius:
+      12px;
+
+    font-size:
+      13px;
+  }
+
+
+  .app-nav-icon {
+
+    width:
+      21px;
+
+    height:
+      21px;
+
+    flex-basis:
+      21px;
+  }
+
+
+  body.home-mode
+  .app-shell {
+
+    padding-bottom:
+      92px;
+  }
+
+}
+
+/* =========================================
+   DESKTOP SIDEBAR ALIGNMENT
+========================================= */
+
+@media (min-width: 901px) {
+
+  .app-nav-button {
+
+    justify-content:
+      flex-start !important;
+
+    text-align:
+      left;
+
+    padding-left:
+      16px;
+  }
+
+
+  .app-nav-label {
+
+    text-align:
+      left;
+  }
+
+}

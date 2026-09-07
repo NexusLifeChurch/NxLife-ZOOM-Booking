@@ -1,0 +1,954 @@
+/**
+ * NxLife Zoom Booking System
+ * My Booking
+ */
+
+
+/* =========================================
+   VIEW
+========================================= */
+
+.my-bookings-view {
+
+  width:
+    min(100%, 1000px);
+
+  margin:
+    0 auto;
+}
+
+
+.my-bookings-header {
+
+  margin-bottom:
+    20px;
+
+  display:
+    flex;
+
+  align-items:
+    flex-end;
+
+  justify-content:
+    space-between;
+
+  gap:
+    16px;
+}
+
+
+.my-bookings-heading span {
+
+  display:
+    block;
+
+  margin-bottom:
+    5px;
+
+  color:
+    var(--eucalyptus-dark);
+
+  font-size:
+    10px;
+
+  font-weight:
+    750;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+.my-bookings-heading h1 {
+
+  margin:
+    0 0 5px;
+
+  font-size:
+    27px;
+}
+
+
+.my-bookings-heading p {
+
+  margin:
+    0;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    12px;
+}
+
+
+.my-booking-count {
+
+  min-width:
+    82px;
+
+  padding:
+    10px 14px;
+
+  background:
+    var(--eucalyptus-soft);
+
+  border-radius:
+    13px;
+
+  color:
+    var(--eucalyptus-dark);
+
+  text-align:
+    center;
+}
+
+
+.my-booking-count strong {
+
+  display:
+    block;
+
+  font-size:
+    19px;
+}
+
+
+.my-booking-count span {
+
+  display:
+    block;
+
+  margin-top:
+    1px;
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.my-bookings-loading,
+.my-bookings-error,
+.my-bookings-empty {
+
+  padding:
+    32px 22px;
+
+  background:
+    var(--surface);
+
+  border-radius:
+    18px;
+
+  text-align:
+    center;
+}
+
+
+.my-bookings-loading,
+.my-bookings-empty {
+
+  color:
+    var(--text-soft);
+}
+
+
+.my-bookings-empty strong {
+
+  display:
+    block;
+
+  margin-bottom:
+    5px;
+
+  color:
+    var(--text);
+
+  font-size:
+    14px;
+}
+
+
+.my-bookings-empty span {
+
+  font-size:
+    11px;
+}
+
+
+.my-bookings-error {
+
+  background:
+    #f5e8e3;
+
+  color:
+    #86564a;
+}
+
+
+/* =========================================
+   DATE GROUP
+========================================= */
+
+.my-booking-groups {
+
+  display:
+    grid;
+
+  gap:
+    22px;
+}
+
+
+.my-booking-group {
+
+  display:
+    grid;
+
+  gap:
+    9px;
+}
+
+
+.my-booking-date {
+
+  padding:
+    0 4px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+}
+
+
+.my-booking-date strong {
+
+  font-size:
+    13px;
+}
+
+
+.my-booking-date span {
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    10px;
+}
+
+
+/* =========================================
+   BOOKING CARD
+========================================= */
+
+.my-booking-card {
+
+  padding:
+    16px 17px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    100px minmax(0, 1fr) auto;
+
+  align-items:
+    center;
+
+  gap:
+    16px;
+
+  background:
+    var(--surface);
+
+  border:
+    1px solid
+    rgba(55, 70, 65, 0.07);
+
+  border-radius:
+    16px;
+
+  box-shadow:
+    0 6px 20px
+    rgba(48, 58, 54, 0.04);
+
+  transition:
+    transform 0.14s ease,
+    box-shadow 0.14s ease;
+}
+
+
+.my-booking-card:hover {
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 9px 25px
+    rgba(48, 58, 54, 0.06);
+}
+
+
+.my-booking-time {
+
+  color:
+    var(--eucalyptus-dark);
+
+  font-size:
+    13px;
+
+  font-weight:
+    800;
+
+  white-space:
+    nowrap;
+}
+
+
+.my-booking-main {
+
+  min-width:
+    0;
+}
+
+
+.my-booking-activity {
+
+  margin-bottom:
+    5px;
+
+  overflow-wrap:
+    anywhere;
+
+  font-size:
+    14px;
+
+  font-weight:
+    750;
+}
+
+
+.my-booking-meta {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  align-items:
+    center;
+
+  gap:
+    6px 10px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    10px;
+}
+
+
+.my-booking-room {
+
+  padding:
+    4px 7px;
+
+  background:
+    var(--surface-soft);
+
+  border-radius:
+    7px;
+
+  color:
+    var(--text);
+}
+
+
+.my-booking-actions {
+
+  display:
+    flex;
+
+  gap:
+    6px;
+}
+
+
+.my-booking-action {
+
+  height:
+    36px;
+
+  padding:
+    0 12px;
+
+  border:
+    0;
+
+  border-radius:
+    10px;
+
+  background:
+    var(--surface-soft);
+
+  color:
+    var(--text);
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+
+  transition:
+    transform 0.12s ease,
+    background 0.15s ease;
+}
+
+
+.my-booking-action:hover {
+
+  background:
+    var(--eucalyptus-soft);
+}
+
+
+.my-booking-action:active {
+
+  transform:
+    scale(0.96);
+}
+
+
+.my-booking-action.delete {
+
+  background:
+    #f5e8e3;
+
+  color:
+    #8a5549;
+}
+
+
+.my-booking-action.delete:hover {
+
+  background:
+    #efddd7;
+}
+
+
+/* =========================================
+   EDIT MODAL
+========================================= */
+
+.my-booking-modal {
+
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  z-index:
+    1450;
+
+  padding:
+    24px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  background:
+    rgba(35, 43, 40, 0.3);
+
+  backdrop-filter:
+    blur(5px);
+}
+
+
+.my-booking-modal-card {
+
+  width:
+    min(100%, 530px);
+
+  max-height:
+    calc(100vh - 48px);
+
+  overflow-y:
+    auto;
+
+  background:
+    var(--surface);
+
+  border-radius:
+    22px;
+
+  box-shadow:
+    0 28px 80px
+    rgba(40, 48, 45, 0.18);
+}
+
+
+.my-booking-modal-header {
+
+  padding:
+    21px 22px 17px;
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(102, 139, 128, 0.11),
+      rgba(102, 139, 128, 0.035)
+    );
+}
+
+
+.my-booking-modal-header span {
+
+  display:
+    block;
+
+  margin-bottom:
+    4px;
+
+  color:
+    var(--eucalyptus-dark);
+
+  font-size:
+    9px;
+
+  font-weight:
+    750;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+.my-booking-modal-header h2 {
+
+  margin:
+    0;
+
+  font-size:
+    21px;
+}
+
+
+.my-booking-modal-header p {
+
+  margin:
+    5px 0 0;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    11px;
+}
+
+
+.my-booking-modal-close {
+
+  width:
+    36px;
+
+  height:
+    36px;
+
+  border:
+    0;
+
+  border-radius:
+    10px;
+
+  background:
+    rgba(255, 255, 255, 0.68);
+
+  font-size:
+    18px;
+
+  cursor:
+    pointer;
+}
+
+
+.my-booking-edit-form {
+
+  padding:
+    22px;
+}
+
+
+.my-booking-field {
+
+  margin-bottom:
+    15px;
+}
+
+
+.my-booking-field label {
+
+  display:
+    block;
+
+  margin-bottom:
+    6px;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+}
+
+
+.my-booking-field input,
+.my-booking-field select {
+
+  width:
+    100%;
+
+  height:
+    48px;
+
+  padding:
+    0 12px;
+
+  border:
+    1px solid
+    rgba(55, 70, 65, 0.14);
+
+  border-radius:
+    12px;
+
+  background:
+    white;
+
+  color:
+    var(--text);
+
+  font-size:
+    14px;
+
+  outline:
+    0;
+}
+
+
+.my-booking-field input:focus,
+.my-booking-field select:focus {
+
+  border-color:
+    rgba(102, 139, 128, 0.62);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(102, 139, 128, 0.08);
+}
+
+
+.my-booking-edit-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    12px;
+}
+
+
+.my-booking-edit-message {
+
+  margin-bottom:
+    15px;
+
+  padding:
+    12px 13px;
+
+  border-radius:
+    11px;
+
+  white-space:
+    pre-line;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.6;
+}
+
+
+.my-booking-edit-message.warning {
+
+  background:
+    var(--terracotta-soft);
+
+  color:
+    #825341;
+}
+
+
+.my-booking-edit-message.error {
+
+  background:
+    #f5e8e3;
+
+  color:
+    #86564a;
+}
+
+
+.my-booking-edit-actions {
+
+  margin-top:
+    19px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    0.8fr 1.2fr;
+
+  gap:
+    9px;
+}
+
+
+.my-booking-edit-cancel,
+.my-booking-edit-save {
+
+  min-height:
+    48px;
+
+  border:
+    0;
+
+  border-radius:
+    12px;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+}
+
+
+.my-booking-edit-cancel {
+
+  background:
+    var(--surface-soft);
+
+  color:
+    var(--text-soft);
+}
+
+
+.my-booking-edit-save {
+
+  background:
+    var(--eucalyptus);
+
+  color:
+    white;
+}
+
+
+.my-booking-edit-save:disabled {
+
+  opacity:
+    0.6;
+
+  cursor:
+    wait;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  #myBookingsView {
+
+    padding-bottom:
+      82px;
+  }
+
+
+  .my-bookings-header {
+
+    align-items:
+      center;
+  }
+
+
+  .my-bookings-heading h1 {
+
+    font-size:
+      23px;
+  }
+
+
+  .my-booking-count {
+
+    min-width:
+      68px;
+
+    padding:
+      8px 10px;
+  }
+
+
+  .my-booking-card {
+
+    grid-template-columns:
+      1fr auto;
+
+    gap:
+      8px 12px;
+
+    padding:
+      15px;
+  }
+
+
+  .my-booking-time {
+
+    grid-column:
+      1;
+
+    grid-row:
+      1;
+
+    font-size:
+      12px;
+  }
+
+
+  .my-booking-main {
+
+    grid-column:
+      1 / -1;
+
+    grid-row:
+      2;
+  }
+
+
+  .my-booking-actions {
+
+    grid-column:
+      2;
+
+    grid-row:
+      1;
+
+    justify-content:
+      flex-end;
+  }
+
+
+  .my-booking-action {
+
+    height:
+      34px;
+
+    padding:
+      0 9px;
+  }
+
+
+  .my-booking-modal {
+
+    padding:
+      0;
+
+    place-items:
+      end center;
+  }
+
+
+  .my-booking-modal-card {
+
+    width:
+      100%;
+
+    max-height:
+      92vh;
+
+    border-radius:
+      22px 22px 0 0;
+  }
+
+
+  .my-booking-field input,
+  .my-booking-field select {
+
+    height:
+      50px;
+
+    font-size:
+      16px;
+  }
+
+}
+
+/* =========================================
+   DESKTOP - MY BOOKING TOP ALIGN
+========================================= */
+
+@media (min-width: 901px) {
+
+  .my-booking-card {
+    align-items: start;
+  }
+
+  .my-booking-time {
+    padding-top: 2px;
+  }
+
+  .my-booking-actions {
+    padding-top: 2px;
+  }
+
+}

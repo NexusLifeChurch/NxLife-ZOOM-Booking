@@ -1,0 +1,1725 @@
+/**
+ * NxLife Zoom Booking System
+ * Admin Recurring
+ */
+
+
+/* =========================================
+   VIEW
+========================================= */
+
+.admin-recurring-view {
+
+  width:
+    min(100%, 1080px);
+
+  margin:
+    0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.admin-recurring-header {
+
+  margin-bottom:
+    20px;
+}
+
+
+.admin-recurring-header-row {
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+
+  gap:
+    14px;
+}
+
+
+.admin-recurring-header-left {
+
+  min-width:
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+}
+
+
+.admin-recurring-count-inline {
+
+  flex:
+    0 0 auto;
+
+  padding:
+    8px 12px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    6px;
+
+  background:
+    var(--eucalyptus-soft);
+
+  border-radius:
+    12px;
+
+  color:
+    var(--eucalyptus-dark);
+}
+
+
+.admin-recurring-count-inline strong {
+
+  font-size:
+    18px;
+}
+
+
+.admin-recurring-count-inline span {
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+}
+
+
+.admin-recurring-title {
+
+  margin:
+    0;
+
+  color:
+    var(--text);
+
+  font-size:
+    24px;
+
+  font-weight:
+    800;
+
+  line-height:
+    1.25;
+}
+
+
+.admin-recurring-add {
+
+  min-height:
+    44px;
+
+  padding:
+    0 16px;
+
+  border:
+    0;
+
+  border-radius:
+    12px;
+
+  background:
+    var(--eucalyptus);
+
+  color:
+    white;
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.admin-recurring-loading,
+.admin-recurring-error,
+.admin-recurring-empty {
+
+  padding:
+    30px 22px;
+
+  border-radius:
+    18px;
+
+  background:
+    var(--surface);
+
+  text-align:
+    center;
+
+  color:
+    var(--text-soft);
+}
+
+
+.admin-recurring-error {
+
+  background:
+    #f5e8e3;
+
+  color:
+    #86564a;
+}
+
+
+/* =========================================
+   LIST
+========================================= */
+
+.admin-recurring-list {
+
+  display:
+    grid;
+
+  gap:
+    12px;
+}
+
+
+.admin-recurring-card {
+
+  padding:
+    16px 16px 14px;
+
+  display:
+    grid;
+
+  gap:
+    10px;
+
+  background:
+    var(--surface);
+
+  border:
+    1px solid rgba(55, 70, 65, 0.07);
+
+  border-radius:
+    18px;
+
+  box-shadow:
+    0 6px 18px rgba(48, 58, 54, 0.04);
+}
+
+
+.admin-recurring-card.inactive {
+
+  opacity:
+    0.65;
+}
+
+
+/* Top row: day left / actions right */
+.admin-recurring-topline {
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+}
+
+
+.admin-recurring-day {
+
+  color:
+    #855746;
+
+  font-size:
+    16px;
+
+  font-weight:
+    800;
+}
+
+
+.admin-recurring-main {
+
+  min-width:
+    0;
+}
+
+
+.admin-recurring-activity {
+
+  display:
+    block;
+
+  margin-bottom:
+    8px;
+
+  overflow-wrap:
+    anywhere;
+
+  color:
+    var(--text);
+
+  font-size:
+    24px;
+
+  font-weight:
+    800;
+
+  line-height:
+    1.3;
+}
+
+
+.admin-recurring-meta {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    7px 8px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    13px;
+}
+
+
+.admin-recurring-meta span {
+
+  padding:
+    5px 8px;
+
+  background:
+    var(--surface-soft);
+
+  border-radius:
+    8px;
+}
+
+
+.admin-recurring-paused {
+
+  background:
+    #eee4df !important;
+
+  color:
+    #86564a;
+}
+
+
+.admin-recurring-creator {
+
+  display:
+    none;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.admin-recurring-actions {
+
+  display:
+    flex;
+
+  justify-content:
+    flex-end;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+}
+
+
+.admin-recurring-action {
+
+  width:
+    36px;
+
+  height:
+    36px;
+
+  padding:
+    0;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border:
+    0;
+
+  border-radius:
+    10px;
+
+  font-size:
+    16px;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+}
+
+
+.admin-recurring-action.edit {
+
+  background:
+    var(--surface-soft);
+
+  color:
+    var(--text);
+}
+
+
+.admin-recurring-action.pause {
+
+  background:
+    #f3ece5;
+
+  color:
+    #7b604d;
+}
+
+
+.admin-recurring-action.activate {
+
+  background:
+    var(--eucalyptus-soft);
+
+  color:
+    var(--eucalyptus-dark);
+}
+
+
+.admin-recurring-action.delete {
+
+  background:
+    #f5e8e3;
+
+  color:
+    #8a5549;
+}
+
+
+.admin-recurring-action:disabled {
+
+  opacity:
+    0.45;
+
+  cursor:
+    wait;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.admin-recurring-modal {
+
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  z-index:
+    1500;
+
+  padding:
+    24px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  background:
+    rgba(35, 43, 40, 0.3);
+
+  backdrop-filter:
+    blur(5px);
+}
+
+
+.admin-recurring-modal-card {
+
+  width:
+    min(100%, 560px);
+
+  max-height:
+    calc(100vh - 48px);
+
+  overflow-y:
+    auto;
+
+  background:
+    var(--surface);
+
+  border-radius:
+    22px;
+
+  box-shadow:
+    0 28px 80px rgba(40, 48, 45, 0.18);
+}
+
+
+.admin-recurring-modal-header {
+
+  padding:
+    21px 22px 17px;
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(102, 139, 128, 0.11),
+      rgba(102, 139, 128, 0.035)
+    );
+}
+
+
+.admin-recurring-modal-header span {
+
+  display:
+    block;
+
+  margin-bottom:
+    4px;
+
+  color:
+    var(--eucalyptus-dark);
+
+  font-size:
+    9px;
+
+  font-weight:
+    750;
+}
+
+
+.admin-recurring-modal-header h2 {
+
+  margin:
+    0;
+
+  font-size:
+    21px;
+}
+
+
+.admin-recurring-modal-header p {
+
+  margin:
+    5px 0 0;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    11px;
+}
+
+
+.admin-recurring-modal-close {
+
+  width:
+    36px;
+
+  height:
+    36px;
+
+  border:
+    0;
+
+  border-radius:
+    10px;
+
+  background:
+    rgba(255, 255, 255, 0.7);
+
+  font-size:
+    18px;
+
+  cursor:
+    pointer;
+}
+
+
+.admin-recurring-form {
+
+  padding:
+    22px;
+}
+
+
+.admin-recurring-field {
+
+  margin-bottom:
+    15px;
+}
+
+
+.admin-recurring-field label {
+
+  display:
+    block;
+
+  margin-bottom:
+    6px;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+}
+
+
+.admin-recurring-field input,
+.admin-recurring-field select {
+
+  width:
+    100%;
+
+  height:
+    48px;
+
+  padding:
+    0 12px;
+
+  border:
+    1px solid rgba(55, 70, 65, 0.14);
+
+  border-radius:
+    12px;
+
+  background:
+    white;
+
+  color:
+    var(--text);
+
+  font-size:
+    14px;
+
+  outline:
+    0;
+}
+
+
+.admin-recurring-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    12px;
+}
+
+
+.admin-recurring-active {
+
+  margin:
+    3px 0 17px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    10px;
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+}
+
+
+.admin-recurring-active input {
+
+  width:
+    18px;
+
+  height:
+    18px;
+}
+
+
+.admin-recurring-message {
+
+  margin-bottom:
+    15px;
+
+  padding:
+    11px 13px;
+
+  border-radius:
+    11px;
+
+  white-space:
+    pre-line;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.6;
+}
+
+
+.admin-recurring-message.warning {
+
+  background:
+    var(--terracotta-soft);
+
+  color:
+    #825341;
+}
+
+
+.admin-recurring-message.error {
+
+  background:
+    #f5e8e3;
+
+  color:
+    #86564a;
+}
+
+
+.admin-recurring-form-actions {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    0.8fr 1.2fr;
+
+  gap:
+    9px;
+}
+
+
+.admin-recurring-cancel,
+.admin-recurring-save {
+
+  min-height:
+    48px;
+
+  border:
+    0;
+
+  border-radius:
+    12px;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+}
+
+
+.admin-recurring-cancel {
+
+  background:
+    var(--surface-soft);
+
+  color:
+    var(--text-soft);
+}
+
+
+.admin-recurring-save {
+
+  background:
+    var(--eucalyptus);
+
+  color:
+    white;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  #adminRecurringView {
+
+    padding-bottom:
+      84px;
+  }
+
+
+  .admin-recurring-header-row {
+
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+
+
+  .admin-recurring-header-left {
+
+    width:
+      100%;
+
+    align-items:
+      flex-start;
+
+    flex-wrap:
+      wrap;
+
+    gap:
+      8px 10px;
+  }
+
+
+  .admin-recurring-title {
+
+    font-size:
+      22px;
+  }
+
+
+  .admin-recurring-add {
+
+    width:
+      100%;
+
+    min-height:
+      46px;
+
+    font-size:
+      14px;
+  }
+
+
+  .admin-recurring-card {
+
+    padding:
+      14px;
+  }
+
+
+  .admin-recurring-day {
+
+    font-size:
+      15px;
+  }
+
+
+  .admin-recurring-activity {
+
+    font-size:
+      16px;
+  }
+
+
+  .admin-recurring-meta {
+
+    font-size:
+      12px;
+  }
+
+
+  .admin-recurring-action {
+
+    width:
+      34px;
+
+    height:
+      34px;
+
+    font-size:
+      15px;
+  }
+
+
+  .admin-recurring-modal {
+
+    padding:
+      0;
+
+    place-items:
+      end center;
+  }
+
+
+  .admin-recurring-modal-card {
+
+    width:
+      100%;
+
+    max-height:
+      92vh;
+
+    border-radius:
+      22px 22px 0 0;
+  }
+
+
+  .admin-recurring-field input,
+  .admin-recurring-field select {
+
+    height:
+      50px;
+
+    font-size:
+      16px;
+  }
+
+}
+
+/* =========================================
+   RECURRING GROUP VIEW
+========================================= */
+
+
+/* ---------- HEADER ---------- */
+
+.admin-recurring-header {
+
+  margin-bottom:
+    18px;
+}
+
+
+.admin-recurring-title-row {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  margin-bottom:
+    12px;
+}
+
+
+.admin-recurring-count-inline {
+
+  flex:
+    0 0 auto;
+
+  min-width:
+    65px;
+
+  padding:
+    8px 10px;
+
+  display:
+    flex;
+
+  align-items:
+    baseline;
+
+  justify-content:
+    center;
+
+  gap:
+    4px;
+
+  background:
+    var(--eucalyptus-soft);
+
+  color:
+    var(--eucalyptus-dark);
+
+  border-radius:
+    12px;
+}
+
+
+.admin-recurring-count-inline strong {
+
+  font-size:
+    18px;
+
+  font-weight:
+    800;
+}
+
+
+.admin-recurring-count-inline span {
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+}
+
+
+.admin-recurring-title {
+
+  margin:
+    0;
+
+  font-size:
+    22px;
+
+  font-weight:
+    800;
+
+  line-height:
+    1.25;
+}
+
+
+/* ---------- TOOLBAR ---------- */
+
+.admin-recurring-toolbar {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    12px;
+}
+
+
+.admin-recurring-view-switch {
+
+  padding:
+    4px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    3px;
+
+  background:
+    rgba(255, 253, 249, 0.75);
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:
+    13px;
+}
+
+
+.admin-recurring-view-button {
+
+  min-height:
+    38px;
+
+  padding:
+    0 14px;
+
+  border:
+    0;
+
+  border-radius:
+    10px;
+
+  background:
+    transparent;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+}
+
+
+.admin-recurring-view-button.active {
+
+  background:
+    var(--eucalyptus-soft);
+
+  color:
+    var(--eucalyptus-dark);
+}
+
+
+.admin-recurring-add {
+
+  min-height:
+    46px;
+
+  padding:
+    0 16px;
+
+  border:
+    0;
+
+  border-radius:
+    12px;
+
+  background:
+    var(--eucalyptus);
+
+  color:
+    white;
+
+  font-size:
+    13px;
+
+  font-weight:
+    750;
+}
+
+
+/* =========================================
+   GROUPS
+========================================= */
+
+.admin-recurring-list {
+
+  display:
+    grid;
+
+  gap:
+    18px;
+}
+
+
+.admin-recurring-group-card {
+
+  overflow:
+    hidden;
+
+  background:
+    var(--surface);
+
+  border:
+    1px solid
+    rgba(55, 70, 65, 0.08);
+
+  border-radius:
+    20px;
+
+  box-shadow:
+    0 8px 26px
+    rgba(48, 58, 54, 0.055);
+}
+
+
+/* ---------- GROUP HEADER ---------- */
+
+.admin-recurring-group-header {
+
+  min-height:
+    58px;
+
+  padding:
+    13px 16px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(102, 139, 128, 0.13),
+      rgba(102, 139, 128, 0.045)
+    );
+
+  border-bottom:
+    1px solid
+    rgba(102, 139, 128, 0.09);
+}
+
+
+.admin-recurring-group-title {
+
+  margin:
+    0;
+
+  color:
+    var(--eucalyptus-dark);
+
+  font-size:
+    18px;
+
+  font-weight:
+    800;
+}
+
+
+.admin-recurring-group-count {
+
+  flex:
+    0 0 auto;
+
+  padding:
+    4px 8px;
+
+  background:
+    rgba(255, 255, 255, 0.62);
+
+  border-radius:
+    999px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+}
+
+
+/* =========================================
+   GROUP ITEM
+========================================= */
+
+.admin-recurring-group-items {
+
+  padding:
+    2px 14px;
+}
+
+
+.admin-recurring-group-item {
+
+  padding:
+    14px 2px;
+
+  border-bottom:
+    1px solid
+    rgba(55, 70, 65, 0.07);
+}
+
+
+.admin-recurring-group-item:last-child {
+
+  border-bottom:
+    0;
+}
+
+
+.admin-recurring-group-item.inactive {
+
+  opacity:
+    0.58;
+}
+
+
+/* ---------- TOP LINE ---------- */
+
+.admin-recurring-item-topline {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    10px;
+
+  margin-bottom:
+    5px;
+}
+
+
+.admin-recurring-item-context {
+
+  min-width:
+    0;
+
+  overflow:
+    hidden;
+
+  color:
+    #855746;
+
+  font-size:
+    12px;
+
+  font-weight:
+    800;
+
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+}
+
+
+/* ---------- ACTIVITY ---------- */
+
+.admin-recurring-item-activity {
+
+  margin-bottom:
+    8px;
+
+  color:
+    var(--text);
+
+  font-size:
+    16px;
+
+  font-weight:
+    800;
+
+  line-height:
+    1.35;
+}
+
+
+/* ---------- META ---------- */
+
+.admin-recurring-item-meta {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    6px;
+}
+
+
+.admin-recurring-item-meta span {
+
+  padding:
+    4px 7px;
+
+  background:
+    var(--surface-soft);
+
+  border-radius:
+    7px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    11px;
+
+  font-weight:
+    600;
+}
+
+
+.admin-recurring-item-meta
+.admin-recurring-paused {
+
+  background:
+    #f1e4de;
+
+  color:
+    #86564a;
+}
+
+
+/* =========================================
+   PAUSED SECTION
+========================================= */
+
+.admin-recurring-paused-divider {
+
+  padding:
+    12px 2px 4px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  color:
+    #967062;
+
+  font-size:
+    10px;
+
+  font-weight:
+    750;
+}
+
+
+.admin-recurring-paused-divider::before,
+.admin-recurring-paused-divider::after {
+
+  content:
+    "";
+
+  height:
+    1px;
+
+  flex:
+    1;
+
+  background:
+    rgba(185, 123, 99, 0.17);
+}
+
+
+/* =========================================
+   ICON ACTIONS
+========================================= */
+
+.admin-recurring-group-actions {
+
+  flex:
+    0 0 auto;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    5px;
+}
+
+
+.admin-recurring-group-action {
+
+  width:
+    32px;
+
+  height:
+    32px;
+
+  padding:
+    0;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border:
+    0;
+
+  border-radius:
+    9px;
+
+  cursor:
+    pointer;
+}
+
+
+.admin-recurring-group-action svg {
+
+  width:
+    16px;
+
+  height:
+    16px;
+
+  stroke:
+    currentColor;
+
+  stroke-width:
+    1.8;
+
+  stroke-linecap:
+    round;
+
+  stroke-linejoin:
+    round;
+}
+
+
+.admin-recurring-group-action.edit {
+
+  background:
+    var(--surface-soft);
+
+  color:
+    var(--text);
+}
+
+
+.admin-recurring-group-action.pause {
+
+  background:
+    #f3ece5;
+
+  color:
+    #7b604d;
+}
+
+
+.admin-recurring-group-action.activate {
+
+  background:
+    var(--eucalyptus-soft);
+
+  color:
+    var(--eucalyptus-dark);
+}
+
+
+.admin-recurring-group-action.delete {
+
+  background:
+    #f5e8e3;
+
+  color:
+    #8a5549;
+}
+
+
+.admin-recurring-group-action:disabled {
+
+  opacity:
+    0.4;
+
+  cursor:
+    wait;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .admin-recurring-title-row {
+
+    align-items:
+      flex-start;
+
+    gap:
+      9px;
+  }
+
+
+  .admin-recurring-title {
+
+    font-size:
+      19px;
+  }
+
+
+  .admin-recurring-count-inline {
+
+    min-width:
+      58px;
+
+    padding:
+      7px 8px;
+  }
+
+
+  .admin-recurring-toolbar {
+
+    gap:
+      8px;
+  }
+
+
+  .admin-recurring-view-switch {
+
+    flex:
+      0 0 auto;
+  }
+
+
+  .admin-recurring-view-button {
+
+    min-height:
+      40px;
+
+    padding:
+      0 11px;
+
+    font-size:
+      11px;
+  }
+
+
+  .admin-recurring-add {
+
+    flex:
+      1;
+
+    min-width:
+      0;
+
+    padding:
+      0 10px;
+
+    font-size:
+      12px;
+  }
+
+
+  .admin-recurring-group-title {
+
+    font-size:
+      17px;
+  }
+
+
+  .admin-recurring-group-items {
+
+    padding:
+      2px 13px;
+  }
+
+
+  .admin-recurring-group-item {
+
+    padding:
+      13px 1px;
+  }
+
+
+  .admin-recurring-item-activity {
+
+    font-size:
+      16px;
+  }
+
+
+  .admin-recurring-item-meta span {
+
+    font-size:
+      11px;
+  }
+
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 390px) {
+
+  .admin-recurring-view-button {
+
+    padding:
+      0 9px;
+
+    font-size:
+      10px;
+  }
+
+
+  .admin-recurring-add {
+
+    font-size:
+      11px;
+  }
+
+
+  .admin-recurring-title {
+
+    font-size:
+      18px;
+  }
+
+}

@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#f5f2ec"
+  >
+
+  <title>
+    NxLife Zoom Booking
+  </title>
+
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/home.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/booking.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/adminUsers.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/adminRecurring.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/myBookings.css"
+  >
+  <link
+    rel="stylesheet"
+    href="css/help.css"
+  >
+</head>
+
+
+<body>
+
+  <div class="app-shell">
+
+
+    <!-- =====================================
+         BRAND
+    ====================================== -->
+
+    <header
+      id="brandHeader"
+      class="brand-header"
+    >
+
+      <div class="brand-mark">
+        N
+      </div>
+
+
+      <div class="brand-copy">
+
+        <div class="brand-name">
+          NxLife
+        </div>
+
+        <div class="brand-subtitle">
+          Zoom Room Booking
+        </div>
+
+      </div>
+
+    </header>
+
+
+
+    <main class="main-wrapper">
+
+
+      <!-- =====================================
+           OTP LOGIN
+      ====================================== -->
+
+      <section
+        id="otpScreen"
+        class="screen auth-card hidden"
+      >
+
+        <div class="auth-heading">
+
+          <span class="eyebrow">
+            NxLife Zoom
+          </span>
+
+          <h1>
+            ยืนยันตัวตน
+          </h1>
+
+          <p>
+            กรอก UserID และ OTP
+            ที่ได้รับจากเจ้าหน้าที่
+          </p>
+
+        </div>
+
+
+        <form id="otpForm">
+
+          <div class="field">
+
+            <label for="userIdInput">
+              UserID
+            </label>
+
+            <input
+              id="userIdInput"
+              name="userId"
+              type="text"
+              autocomplete="username"
+              placeholder="เช่น 0807850001"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="otpInput">
+              OTP 4 หลัก
+            </label>
+
+            <input
+              id="otpInput"
+              name="otp"
+              type="text"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              maxlength="4"
+              autocomplete="one-time-code"
+              placeholder="••••"
+              required
+            >
+
+          </div>
+
+
+          <button
+            class="primary-button"
+            type="submit"
+          >
+            ตรวจสอบ OTP
+          </button>
+
+        </form>
+
+
+        <p
+          id="otpHint"
+          class="helper-text"
+        >
+          หากยังไม่มี OTP
+          กรุณาสอบถามเจ้าหน้าที่
+        </p>
+
+      </section>
+
+
+
+      <!-- =====================================
+           PIN LOGIN
+      ====================================== -->
+
+      <section
+        id="pinLoginScreen"
+        class="screen auth-card hidden"
+      >
+
+        <div class="auth-heading">
+
+          <span class="eyebrow">
+            ยินดีต้อนรับกลับ
+          </span>
+
+          <h1>
+            กรอก PIN
+          </h1>
+
+          <p>
+            เข้าสู่ระบบด้วย PIN 4 หลัก
+            ของเครื่องนี้
+          </p>
+
+        </div>
+
+
+        <div class="saved-user">
+
+          <span>
+            UserID
+          </span>
+
+          <strong id="savedUserId">
+            -
+          </strong>
+
+        </div>
+
+
+        <form id="pinLoginForm">
+
+          <div class="field">
+
+            <label for="pinLoginInput">
+              PIN
+            </label>
+
+            <input
+              id="pinLoginInput"
+              type="password"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              maxlength="4"
+              autocomplete="current-password"
+              placeholder="••••"
+              required
+            >
+
+          </div>
+
+
+          <button
+            class="primary-button"
+            type="submit"
+          >
+            เข้าสู่ระบบ
+          </button>
+
+        </form>
+
+
+        <div class="text-actions">
+
+          <button
+            id="forgotPinButton"
+            class="text-button"
+            type="button"
+          >
+            ลืม PIN
+          </button>
+
+
+          <button
+            id="changeUserButton"
+            class="text-button muted"
+            type="button"
+          >
+            ใช้ UserID อื่น
+          </button>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =====================================
+           SET PIN
+      ====================================== -->
+
+      <section
+        id="setPinScreen"
+        class="screen auth-card hidden"
+      >
+
+        <div class="auth-heading">
+
+          <span class="eyebrow">
+            ยืนยันตัวตนแล้ว
+          </span>
+
+          <h1>
+            ตั้ง PIN
+          </h1>
+
+          <p>
+            ตั้ง PIN 4 หลัก
+            สำหรับเข้าใช้งานครั้งต่อไป
+            บนอุปกรณ์นี้
+          </p>
+
+        </div>
+
+
+        <div class="verified-user">
+
+          <div
+            id="verifiedUserName"
+            class="verified-name"
+          >
+            -
+          </div>
+
+          <div
+            id="verifiedUserId"
+            class="verified-id"
+          >
+            -
+          </div>
+
+        </div>
+
+
+        <form id="setPinForm">
+
+          <div class="field">
+
+            <label for="newPinInput">
+              PIN ใหม่
+            </label>
+
+            <input
+              id="newPinInput"
+              type="password"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              maxlength="4"
+              autocomplete="new-password"
+              placeholder="••••"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="confirmPinInput">
+              ยืนยัน PIN
+            </label>
+
+            <input
+              id="confirmPinInput"
+              type="password"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              maxlength="4"
+              autocomplete="new-password"
+              placeholder="••••"
+              required
+            >
+
+          </div>
+
+
+          <button
+            class="primary-button"
+            type="submit"
+          >
+            บันทึก PIN
+          </button>
+
+        </form>
+
+      </section>
+
+
+
+      <!-- =====================================
+           APPLICATION
+      ====================================== -->
+
+      <section
+        id="appScreen"
+        class="screen home-screen hidden"
+      >
+
+
+        <!-- =================================
+             MAIN NAVIGATION
+        ================================== -->
+
+<nav
+  id="appNavigation"
+  class="app-navigation"
+  aria-label="เมนูหลัก"
+>
+
+  <!-- SIDEBAR BRAND -->
+  <div class="app-sidebar-brand">
+
+    <div class="app-sidebar-mark">
+      N
+    </div>
+
+    <div class="app-sidebar-copy">
+
+      <strong>
+        NxLife
+      </strong>
+
+      <span>
+        ZOOM Booking
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- HOME -->
+  <button
+    id="navHomeButton"
+    class="app-nav-button active"
+    type="button"
+  >
+
+    <span
+      class="app-nav-icon"
+      aria-hidden="true"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path d="M3 10.5L12 3l9 7.5"></path>
+        <path d="M5.5 9.5V21h13V9.5"></path>
+        <path d="M9.5 21v-6h5v6"></path>
+      </svg>
+    </span>
+
+    <span class="app-nav-label">
+      Home
+    </span>
+
+  </button>
+
+
+  <!-- MY BOOKING -->
+  <button
+    id="navMyBookingsButton"
+    class="app-nav-button"
+    type="button"
+  >
+
+    <span
+      class="app-nav-icon"
+      aria-hidden="true"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <rect
+          x="3"
+          y="5"
+          width="18"
+          height="16"
+          rx="2.5"
+        ></rect>
+
+        <path
+          d="M7 3v4M17 3v4M3 10h18"
+        ></path>
+
+        <path
+          d="M8 14h3M8 17.5h6"
+        ></path>
+      </svg>
+    </span>
+
+    <span class="app-nav-label">
+      My Booking
+    </span>
+
+  </button>
+
+
+  <!-- ADMIN RECURRING -->
+  <button
+    id="navAdminRecurringButton"
+    class="app-nav-button hidden"
+    type="button"
+  >
+
+    <span
+      class="app-nav-icon"
+      aria-hidden="true"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+
+        <rect
+          x="3"
+          y="4"
+          width="15"
+          height="16"
+          rx="2.5"
+        ></rect>
+
+        <path
+          d="M7 2.5v4M14 2.5v4M3 8.5h15"
+        ></path>
+
+        <path
+          d="M20 12.5a4.5 4.5 0 1 1-1.1-2.9"
+        ></path>
+
+        <path
+          d="M20 8.5v4h-4"
+        ></path>
+
+      </svg>
+    </span>
+
+    <span class="app-nav-label">
+      จองประจำ
+    </span>
+
+  </button>
+
+
+  <!-- ADMIN USERS -->
+  <button
+    id="navAdminUsersButton"
+    class="app-nav-button hidden"
+    type="button"
+  >
+
+    <span
+      class="app-nav-icon"
+      aria-hidden="true"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+
+        <circle
+          cx="9"
+          cy="8"
+          r="3"
+        ></circle>
+
+        <path
+          d="M3.5 19c.5-3.3 2.3-5 5.5-5s5 1.7 5.5 5"
+        ></path>
+
+        <circle
+          cx="17"
+          cy="9"
+          r="2.2"
+        ></circle>
+
+        <path
+          d="M15.5 14.5c3.1-.4 4.8 1 5 4.5"
+        ></path>
+
+      </svg>
+
+    </span>
+
+    <span class="app-nav-label">
+      ผู้ใช้งาน
+    </span>
+
+  </button>
+
+
+  <!-- HELP -->
+  <button
+    id="navHelpButton"
+    class="app-nav-button app-nav-help"
+    type="button"
+  >
+
+    <span
+      class="app-nav-icon"
+      aria-hidden="true"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+
+        <circle
+          cx="12"
+          cy="12"
+          r="9"
+        ></circle>
+
+        <path
+          d="M9.8 9a2.5 2.5 0 1 1 3.8 2.1c-1 .6-1.6 1.1-1.6 2.4"
+        ></path>
+
+        <path
+          d="M12 17h.01"
+        ></path>
+
+      </svg>
+
+    </span>
+
+    <span class="app-nav-label">
+      คู่มือ
+    </span>
+
+  </button>
+
+</nav>
+
+
+
+        <!-- =================================
+             HOME VIEW
+        ================================== -->
+
+        <div id="homeView">
+
+          <div class="home-sticky-header">
+
+            <div class="home-header-main">
+
+              <!-- Desktop Date Header -->
+              <div class="home-date-area">
+
+                <span class="home-eyebrow">
+                  ตารางการใช้ห้อง Zoom
+                </span>
+
+                <h1 id="dateTitle">
+                  -
+                </h1>
+
+              </div>
+
+
+              <!-- User / Refresh / Lock -->
+              <div class="home-user-mini">
+
+                <div class="home-user-info">
+
+                  <strong id="userMiniName">
+                    -
+                  </strong>
+
+                  <span id="userMiniRole">
+                    -
+                  </span>
+
+                </div>
+
+
+                <button
+                  id="refreshDataButton"
+                  class="mini-lock-button"
+                  type="button"
+                  title="Refresh ข้อมูล"
+                  aria-label="Refresh ข้อมูล"
+                >
+
+                  <svg
+                    class="header-action-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+
+                    <path
+                      d="M20 6v5h-5"
+                    />
+
+                    <path
+                      d="M19 11a7 7 0 1 0-2 5"
+                    />
+
+                    <path
+                      d="M20 6l-3-3"
+                    />
+
+                  </svg>
+
+                </button>
+                <button
+                  id="helpButton"
+                  class="mini-lock-button"
+                  type="button"
+                  title="คู่มือการใช้งาน"
+                  aria-label="คู่มือการใช้งาน"
+                >
+
+                  <svg
+                    class="header-action-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="9"
+                    ></circle>
+
+                    <path
+                      d="M9.8 9a2.5 2.5 0 1 1 3.8 2.1c-1 .6-1.6 1.1-1.6 2.4"
+                    ></path>
+
+                    <path
+                      d="M12 17h.01"
+                    ></path>
+
+                  </svg>
+
+                </button>
+
+                <button
+                  id="lockButton"
+                  class="mini-lock-button"
+                  type="button"
+                  title="ล็อก"
+                  aria-label="ล็อก"
+                >
+
+                  <svg
+                    class="header-action-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+
+                    <rect
+                      x="5"
+                      y="10"
+                      width="14"
+                      height="11"
+                      rx="2.5"
+                    />
+
+                    <path
+                      d="M8 10V7a4 4 0 0 1 8 0v3"
+                    />
+
+                    <path
+                      d="M12 14v3"
+                    />
+
+                  </svg>
+
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- DATE NAVIGATOR -->
+
+            <nav
+              class="date-navigator"
+              aria-label="เลือกวันที่"
+            >
+
+              <!-- Previous -->
+              <button
+                id="prevDayButton"
+                class="date-nav-button"
+                type="button"
+                aria-label="วันก่อนหน้า"
+              >
+
+                <span
+                  class="nav-arrow"
+                  aria-hidden="true"
+                >
+                  ‹
+                </span>
+
+                <span class="nav-text">
+                  ก่อนหน้า
+                </span>
+
+              </button>
+
+
+              <!-- Mobile Date -->
+              <div
+                id="dateNavLabel"
+                class="date-nav-label"
+                aria-live="polite"
+              >
+                -
+              </div>
+
+
+              <!-- Desktop Today -->
+              <button
+                id="todayButton"
+                class="date-nav-button today-button"
+                type="button"
+              >
+                วันนี้
+              </button>
+
+
+              <!-- Next -->
+              <button
+                id="nextDayButton"
+                class="date-nav-button"
+                type="button"
+                aria-label="วันถัดไป"
+              >
+
+                <span class="nav-text">
+                  ถัดไป
+                </span>
+
+                <span
+                  class="nav-arrow"
+                  aria-hidden="true"
+                >
+                  ›
+                </span>
+
+              </button>
+
+
+              <!-- Calendar -->
+              <button
+                id="calendarButton"
+                class="date-calendar-button"
+                type="button"
+                title="เลือกวันที่"
+                aria-label="เลือกวันที่"
+              >
+
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+
+                  <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="16"
+                    rx="2.5"
+                  />
+
+                  <path
+                    d="M7 3v4M17 3v4M3 10h18"
+                  />
+
+                  <path
+                    d="M8 14h3M13 14h3M8 17.5h3M13 17.5h3"
+                  />
+
+                </svg>
+
+              </button>
+
+
+              <input
+                id="datePicker"
+                class="native-date-picker"
+                type="date"
+                tabindex="-1"
+                aria-label="เลือกวันที่"
+              >
+
+            </nav>
+
+          </div>
+
+
+          <!-- TIMELINE LOADING -->
+
+          <div
+            id="timelineLoading"
+            class="timeline-loading hidden"
+          >
+
+            <span class="loading-spinner">
+            </span>
+
+            <span>
+              กำลังโหลดข้อมูล...
+            </span>
+
+          </div>
+
+
+
+          <!-- TIMELINE ERROR -->
+
+          <div
+            id="timelineError"
+            class="timeline-error hidden"
+          >
+
+            <strong>
+              โหลดข้อมูลไม่สำเร็จ
+            </strong>
+
+            <p id="timelineErrorMessage">
+              กรุณาลองใหม่อีกครั้ง
+            </p>
+
+            <button
+              id="retryTimelineButton"
+              type="button"
+            >
+              ลองใหม่
+            </button>
+
+          </div>
+
+
+
+          <!-- ROOM TIMELINE -->
+
+          <div
+            id="roomsGrid"
+            class="rooms-grid"
+          >
+          </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             MY BOOKING VIEW
+        ================================== -->
+
+        <section
+          id="myBookingsView"
+          class="my-bookings-view hidden"
+        >
+
+
+          <div class="my-bookings-header">
+
+
+            <div class="my-bookings-heading">
+
+              <span>
+                MY BOOKING
+              </span>
+
+              <h1>
+                การจองของฉัน
+              </h1>
+
+              <p>
+                รายการจองตั้งแต่วันนี้เป็นต้นไป
+              </p>
+
+            </div>
+
+
+
+            <div class="my-booking-count">
+
+              <strong
+                id="myBookingCountNumber"
+              >
+                0
+              </strong>
+
+              <span>
+                รายการ
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+
+          <div
+            id="myBookingsLoading"
+            class="my-bookings-loading hidden"
+          >
+            กำลังโหลดรายการ...
+          </div>
+
+
+
+          <div
+            id="myBookingsError"
+            class="my-bookings-error hidden"
+          >
+          </div>
+
+
+
+          <div
+            id="myBookingsEmpty"
+            class="my-bookings-empty hidden"
+          >
+
+            <strong>
+              ยังไม่มีการจอง
+            </strong>
+
+            <span>
+              เมื่อคุณจองห้อง Zoom รายการจะมาแสดงที่นี่
+            </span>
+
+          </div>
+
+
+
+          <div
+            id="myBookingGroups"
+            class="my-booking-groups"
+          >
+          </div>
+
+
+        </section>
+
+<!-- =================================
+     ADMIN RECURRING VIEW
+================================= -->
+
+<section
+  id="adminRecurringView"
+  class="admin-recurring-view hidden"
+>
+
+<div class="admin-recurring-header">
+
+  <!-- COUNT + TITLE -->
+  <div class="admin-recurring-title-row">
+
+    <div class="admin-recurring-count-inline">
+
+      <strong id="adminRecurringCount">
+        0
+      </strong>
+
+      <span>
+        รายการ
+      </span>
+
+    </div>
+
+
+    <h1 class="admin-recurring-title">
+      ตารางกิจกรรมประจำการใช้ห้อง ZOOM
+    </h1>
+
+  </div>
+
+
+  <!-- VIEW MODE + ADD -->
+  <div class="admin-recurring-toolbar">
+
+    <div
+      class="admin-recurring-view-switch"
+      aria-label="รูปแบบการจัดกลุ่ม"
+    >
+
+      <button
+        id="adminRecurringGroupDayButton"
+        class="admin-recurring-view-button active"
+        type="button"
+      >
+        ตามวัน
+      </button>
+
+
+      <button
+        id="adminRecurringGroupRoomButton"
+        class="admin-recurring-view-button"
+        type="button"
+      >
+        ตามห้อง
+      </button>
+
+    </div>
+
+
+    <button
+      id="adminRecurringAddButton"
+      class="admin-recurring-add"
+      type="button"
+    >
+      + เพิ่มกิจกรรมประจำ
+    </button>
+
+  </div>
+
+</div>
+
+
+  <div
+    id="adminRecurringLoading"
+    class="admin-recurring-loading hidden"
+  >
+    กำลังโหลดกิจกรรมประจำ...
+  </div>
+
+
+  <div
+    id="adminRecurringError"
+    class="admin-recurring-error hidden"
+  >
+  </div>
+
+
+  <div
+    id="adminRecurringEmpty"
+    class="admin-recurring-empty hidden"
+  >
+    ยังไม่มีกิจกรรมประจำ
+  </div>
+
+
+  <div
+    id="adminRecurringList"
+    class="admin-recurring-list"
+  >
+  </div>
+
+</section>
+
+        <!-- =================================
+             ADMIN USERS VIEW
+        ================================== -->
+
+        <section
+          id="adminUsersView"
+          class="admin-users-view hidden"
+        >
+
+
+      <div class="admin-users-header-v2">
+
+        <div class="admin-users-header-left">
+
+          <div class="admin-users-count-inline">
+
+            <strong id="adminUserCount">
+              0
+            </strong>
+
+            <span>
+              รายการ
+            </span>
+
+          </div>
+
+
+          <h1 class="admin-users-title">
+            จัดการผู้ใช้งาน
+          </h1>
+
+        </div>
+
+
+        <button
+          id="adminAddUserButton"
+          class="admin-add-user-button-v2"
+          type="button"
+        >
+          + เพิ่มผู้ใช้งาน
+        </button>
+
+      </div>
+
+
+
+          <div
+            id="adminUsersLoading"
+            class="admin-users-loading hidden"
+          >
+            กำลังโหลดข้อมูล...
+          </div>
+
+
+
+          <div
+            id="adminUsersError"
+            class="admin-users-error hidden"
+          >
+          </div>
+
+
+
+          <div
+            id="adminUsersEmpty"
+            class="admin-users-empty hidden"
+          >
+            ยังไม่มีผู้ใช้งาน
+          </div>
+
+
+
+          <div
+            id="adminUserList"
+            class="admin-user-list"
+          >
+          </div>
+
+
+        </section>
+
+
+      </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         CREATE BOOKING MODAL
+    ====================================== -->
+
+    <div
+      id="bookingModal"
+      class="booking-modal hidden"
+      aria-hidden="true"
+    >
+
+
+      <div
+        id="bookingModalCard"
+        class="booking-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="bookingModalTitle"
+      >
+
+
+        <div class="booking-modal-header">
+
+          <div>
+
+            <span class="booking-modal-eyebrow">
+              จองห้อง Zoom
+            </span>
+
+            <h2 id="bookingModalTitle">
+              เพิ่มการจอง
+            </h2>
+
+            <p>
+              เลือกช่วงเวลาที่ต้องการใช้งาน
+            </p>
+
+          </div>
+
+
+          <button
+            id="bookingCloseButton"
+            class="booking-close-button"
+            type="button"
+            aria-label="ปิด"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+
+        <div class="booking-modal-body">
+
+
+          <div class="booking-context">
+
+
+            <div class="booking-context-item">
+
+              <span>
+                ห้อง
+              </span>
+
+              <strong id="bookingRoomDisplay">
+                -
+              </strong>
+
+            </div>
+
+
+
+            <div class="booking-context-item">
+
+              <span>
+                วันที่
+              </span>
+
+              <strong id="bookingDateDisplay">
+                -
+              </strong>
+
+            </div>
+
+
+
+            <div class="booking-context-item">
+
+              <span>
+                ผู้จอง
+              </span>
+
+              <strong id="bookingUserDisplay">
+                -
+              </strong>
+
+            </div>
+
+
+          </div>
+
+
+
+          <form id="bookingForm">
+
+
+            <div class="booking-field">
+
+              <label for="bookingActivity">
+                กิจกรรม *
+              </label>
+
+              <input
+                id="bookingActivity"
+                type="text"
+                maxlength="150"
+                autocomplete="off"
+                placeholder="ชื่อกิจกรรม"
+                required
+              >
+
+            </div>
+
+
+
+            <div class="booking-time-grid">
+
+
+              <div class="booking-field">
+
+                <label for="bookingStartTime">
+                  เวลาเริ่ม
+                </label>
+
+                <select
+                  id="bookingStartTime"
+                  required
+                >
+                </select>
+
+              </div>
+
+
+
+              <div class="booking-field">
+
+                <label for="bookingEndTime">
+                  เวลาสิ้นสุด
+                </label>
+
+                <select
+                  id="bookingEndTime"
+                  disabled
+                  required
+                >
+                </select>
+
+              </div>
+
+
+            </div>
+
+
+
+            <div class="booking-field-hint">
+              ระบบจะแสดงเฉพาะช่วงเวลาที่สามารถเลือกได้
+            </div>
+
+
+
+            <div
+              id="bookingMessage"
+              class="booking-message hidden"
+            >
+            </div>
+
+
+
+            <div class="booking-actions">
+
+
+              <button
+                id="bookingCancelButton"
+                class="booking-cancel-button"
+                type="button"
+              >
+                ยกเลิก
+              </button>
+
+
+
+              <button
+                id="bookingSubmitButton"
+                class="booking-submit-button"
+                type="submit"
+              >
+                ยืนยันการจอง
+              </button>
+
+
+            </div>
+
+
+          </form>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         MY BOOKING EDIT MODAL
+    ====================================== -->
+
+    <div
+      id="myBookingModal"
+      class="my-booking-modal hidden"
+      aria-hidden="true"
+    >
+
+
+      <div
+        class="my-booking-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="myBookingModalTitle"
+      >
+
+
+        <div class="my-booking-modal-header">
+
+          <div>
+
+            <span>
+              MY BOOKING
+            </span>
+
+            <h2 id="myBookingModalTitle">
+              แก้ไขการจอง
+            </h2>
+
+            <p>
+              สามารถเปลี่ยนกิจกรรม วัน เวลา และห้องได้
+            </p>
+
+          </div>
+
+
+          <button
+            id="myBookingModalClose"
+            class="my-booking-modal-close"
+            type="button"
+            aria-label="ปิด"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+
+        <form
+          id="myBookingEditForm"
+          class="my-booking-edit-form"
+        >
+
+
+          <div class="my-booking-field">
+
+            <label for="myBookingEditActivity">
+              กิจกรรม
+            </label>
+
+            <input
+              id="myBookingEditActivity"
+              type="text"
+              maxlength="150"
+              autocomplete="off"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="my-booking-edit-grid">
+
+
+            <div class="my-booking-field">
+
+              <label for="myBookingEditDate">
+                วันที่
+              </label>
+
+              <input
+                id="myBookingEditDate"
+                type="date"
+                required
+              >
+
+            </div>
+
+
+
+            <div class="my-booking-field">
+
+              <label for="myBookingEditRoom">
+                ห้อง Zoom
+              </label>
+
+              <select
+                id="myBookingEditRoom"
+                required
+              >
+              </select>
+
+            </div>
+
+
+          </div>
+
+
+
+          <div class="my-booking-edit-grid">
+
+
+            <div class="my-booking-field">
+
+              <label for="myBookingEditStartTime">
+                เวลาเริ่ม
+              </label>
+
+              <select
+                id="myBookingEditStartTime"
+                required
+              >
+              </select>
+
+            </div>
+
+
+
+            <div class="my-booking-field">
+
+              <label for="myBookingEditEndTime">
+                เวลาสิ้นสุด
+              </label>
+
+              <select
+                id="myBookingEditEndTime"
+                disabled
+                required
+              >
+              </select>
+
+            </div>
+
+
+          </div>
+
+
+
+          <div
+            id="myBookingEditMessage"
+            class="my-booking-edit-message hidden"
+          >
+          </div>
+
+
+
+          <div class="my-booking-edit-actions">
+
+
+            <button
+              id="myBookingEditCancel"
+              class="my-booking-edit-cancel"
+              type="button"
+            >
+              ยกเลิก
+            </button>
+
+
+
+            <button
+              id="myBookingEditSave"
+              class="my-booking-edit-save"
+              type="submit"
+            >
+              บันทึกการแก้ไข
+            </button>
+
+
+          </div>
+
+
+        </form>
+
+
+      </div>
+
+
+    </div>
+
+<!-- =====================================
+     ADMIN RECURRING MODAL
+====================================== -->
+
+<div
+  id="adminRecurringModal"
+  class="admin-recurring-modal hidden"
+  aria-hidden="true"
+>
+
+  <div
+    class="admin-recurring-modal-card"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="adminRecurringModalTitle"
+  >
+
+    <div class="admin-recurring-modal-header">
+
+      <div>
+
+        <span>
+          ADMIN
+        </span>
+
+        <h2 id="adminRecurringModalTitle">
+          เพิ่มกิจกรรมประจำ
+        </h2>
+
+        <p id="adminRecurringModalDescription">
+          กำหนดข้อมูลกิจกรรมประจำ
+        </p>
+
+      </div>
+
+
+      <button
+        id="adminRecurringModalClose"
+        class="admin-recurring-modal-close"
+        type="button"
+        aria-label="ปิด"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <form
+      id="adminRecurringForm"
+      class="admin-recurring-form"
+    >
+
+      <div class="admin-recurring-field">
+
+        <label for="adminRecurringActivity">
+          กิจกรรม
+        </label>
+
+        <input
+          id="adminRecurringActivity"
+          type="text"
+          maxlength="150"
+          autocomplete="off"
+          required
+        >
+
+      </div>
+
+
+      <div class="admin-recurring-grid">
+
+        <div class="admin-recurring-field">
+
+          <label for="adminRecurringRoom">
+            ห้อง Zoom
+          </label>
+
+          <select
+            id="adminRecurringRoom"
+            required
+          >
+          </select>
+
+        </div>
+
+
+        <div class="admin-recurring-field">
+
+          <label for="adminRecurringDayOfWeek">
+            วันประจำ
+          </label>
+
+          <select
+            id="adminRecurringDayOfWeek"
+            required
+          >
+
+            <option value="จันทร์">
+              จันทร์
+            </option>
+
+            <option value="อังคาร">
+              อังคาร
+            </option>
+
+            <option value="พุธ">
+              พุธ
+            </option>
+
+            <option value="พฤหัสบดี">
+              พฤหัสบดี
+            </option>
+
+            <option value="ศุกร์">
+              ศุกร์
+            </option>
+
+            <option value="เสาร์">
+              เสาร์
+            </option>
+
+            <option value="อาทิตย์">
+              อาทิตย์
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div class="admin-recurring-grid">
+
+        <div class="admin-recurring-field">
+
+          <label for="adminRecurringStartDate">
+            วันที่เริ่ม
+          </label>
+
+          <input
+            id="adminRecurringStartDate"
+            type="date"
+            required
+          >
+
+        </div>
+
+
+        <div class="admin-recurring-field">
+
+          <label for="adminRecurringEndDate">
+            วันที่สิ้นสุด
+          </label>
+
+          <input
+            id="adminRecurringEndDate"
+            type="date"
+            required
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="admin-recurring-grid">
+
+        <div class="admin-recurring-field">
+
+          <label for="adminRecurringStartTime">
+            เวลาเริ่ม
+          </label>
+
+          <select
+            id="adminRecurringStartTime"
+            required
+          >
+          </select>
+
+        </div>
+
+
+        <div class="admin-recurring-field">
+
+          <label for="adminRecurringEndTime">
+            เวลาสิ้นสุด
+          </label>
+
+          <select
+            id="adminRecurringEndTime"
+            disabled
+            required
+          >
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <label class="admin-recurring-active">
+
+        <input
+          id="adminRecurringActive"
+          type="checkbox"
+          checked
+        >
+
+        <span>
+          เปิดใช้งานรายการนี้
+        </span>
+
+      </label>
+
+
+      <div
+        id="adminRecurringMessage"
+        class="admin-recurring-message hidden"
+      >
+      </div>
+
+
+      <div class="admin-recurring-form-actions">
+
+        <button
+          id="adminRecurringCancel"
+          class="admin-recurring-cancel"
+          type="button"
+        >
+          ยกเลิก
+        </button>
+
+
+        <button
+          id="adminRecurringSave"
+          class="admin-recurring-save"
+          type="submit"
+        >
+          บันทึก
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+    <!-- =====================================
+         ADMIN USER MODAL
+    ====================================== -->
+
+    <div
+      id="adminUserModal"
+      class="admin-user-modal hidden"
+      aria-hidden="true"
+    >
+
+
+      <div
+        class="admin-user-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="adminUserModalTitle"
+      >
+
+
+        <div class="admin-user-modal-header">
+
+          <div>
+
+            <h2 id="adminUserModalTitle">
+              เพิ่มผู้ใช้งาน
+            </h2>
+
+            <p id="adminUserModalDescription">
+              กำหนดข้อมูลผู้ใช้งาน
+            </p>
+
+          </div>
+
+
+          <button
+            id="adminUserModalClose"
+            class="admin-user-modal-close"
+            type="button"
+            aria-label="ปิด"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+
+        <form
+          id="adminUserForm"
+          class="admin-user-form"
+        >
+
+
+          <div class="admin-user-field">
+
+            <label for="adminUserLogin">
+              UserID
+            </label>
+
+            <input
+              id="adminUserLogin"
+              type="text"
+              autocomplete="off"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="admin-user-field">
+
+            <label for="adminUserName">
+              UserName
+            </label>
+
+            <input
+              id="adminUserName"
+              type="text"
+              maxlength="100"
+              autocomplete="off"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="admin-user-field">
+
+            <label for="adminUserOtp">
+              OTP
+            </label>
+
+            <input
+              id="adminUserOtp"
+              type="text"
+              inputmode="numeric"
+              maxlength="4"
+              autocomplete="off"
+              placeholder="1000 - 9999"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="admin-user-field">
+
+            <label for="adminUserRole">
+              Role
+            </label>
+
+            <select
+              id="adminUserRole"
+              required
+            >
+
+              <option value="User">
+                User
+              </option>
+
+              <option value="Admin">
+                Admin
+              </option>
+
+            </select>
+
+          </div>
+
+
+
+          <label class="admin-user-active-field">
+
+            <input
+              id="adminUserActive"
+              type="checkbox"
+              checked
+            >
+
+            <span>
+              Active
+            </span>
+
+          </label>
+
+
+
+          <div
+            id="adminUserMessage"
+            class="admin-user-message hidden"
+          >
+          </div>
+
+
+
+          <div class="admin-user-form-actions">
+
+
+            <button
+              id="adminUserCancel"
+              class="admin-user-cancel"
+              type="button"
+            >
+              ยกเลิก
+            </button>
+
+
+
+            <button
+              id="adminUserSave"
+              class="admin-user-save"
+              type="submit"
+            >
+              บันทึก
+            </button>
+
+
+          </div>
+
+
+        </form>
+
+
+      </div>
+
+
+    </div>
+
+<!-- =====================================
+     HELP MODAL
+====================================== -->
+
+<div
+  id="helpModal"
+  class="help-modal hidden"
+  aria-hidden="true"
+>
+
+  <div
+    class="help-modal-card"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="helpModalTitle"
+  >
+
+    <div class="help-modal-header">
+
+      <div class="help-modal-heading">
+
+        <span>
+          NxLife ZOOM BOOKING
+        </span>
+
+        <h2 id="helpModalTitle">
+          คู่มือการใช้งาน
+        </h2>
+
+      </div>
+
+
+      <button
+        id="helpCloseButton"
+        class="help-modal-close"
+        type="button"
+        aria-label="ปิดคู่มือ"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="help-modal-body">
+
+      <div
+        id="helpLoading"
+        class="help-loading"
+      >
+        กำลังโหลดคู่มือ...
+      </div>
+
+
+      <div
+        id="helpError"
+        class="help-error hidden"
+      >
+
+        <div id="helpErrorMessage">
+          ไม่สามารถโหลดคู่มือได้
+        </div>
+
+        <button
+          id="helpRetryButton"
+          class="help-retry"
+          type="button"
+        >
+          ลองใหม่
+        </button>
+
+      </div>
+
+
+      <pre
+        id="helpContent"
+        class="help-content hidden"
+      ></pre>
+
+    </div>
+
+  </div>
+
+</div>
+
+    <!-- =====================================
+         GLOBAL TOAST
+    ====================================== -->
+
+    <div
+      id="toast"
+      class="toast hidden"
+      role="status"
+      aria-live="polite"
+    >
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =====================================
+       JAVASCRIPT
+  ====================================== -->
+
+  <script
+    src="js/api.js"
+    defer
+  ></script>
+
+  <script
+    src="js/dataStore.js"
+    defer
+  ></script>
+
+  <script
+    src="js/auth.js"
+    defer
+  ></script>
+
+  <script
+    src="js/timeline.js"
+    defer
+  ></script>
+
+  <script
+    src="js/booking.js"
+    defer
+  ></script>
+
+  <script
+    src="js/myBookings.js"
+    defer
+  ></script>
+  <script
+    src="js/adminRecurring.js"
+    defer
+  ></script>
+  <script
+    src="js/adminUsers.js"
+    defer
+  ></script>
+
+  <script
+    src="js/help.js"
+    defer
+  ></script>
+
+  <script
+    src="js/navigation.js"
+    defer
+  ></script>
+
+  <script
+    src="js/app.js"
+    defer
+  ></script>
+
+
+</body>
+
+</html>

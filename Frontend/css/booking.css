@@ -1,0 +1,589 @@
+/* =========================================
+   NxLife Zoom Booking
+   Booking Modal
+========================================= */
+
+
+body.modal-open {
+  overflow: hidden;
+}
+
+
+/* Backdrop */
+
+.booking-modal {
+
+  position: fixed;
+  inset: 0;
+
+  z-index: 1200;
+
+  padding: 24px;
+
+  display: grid;
+  place-items: center;
+
+  background:
+    rgba(34, 43, 40, 0.28);
+
+  backdrop-filter:
+    blur(5px);
+
+  animation:
+    bookingBackdropIn
+    0.18s ease;
+}
+
+
+.booking-modal-card {
+
+  width:
+    min(100%, 520px);
+
+  max-height:
+    calc(100vh - 48px);
+
+  overflow-y:
+    auto;
+
+  background:
+    var(--surface);
+
+  border:
+    1px solid
+    rgba(55, 70, 65, 0.08);
+
+  border-radius:
+    22px;
+
+  box-shadow:
+    0 28px 80px
+    rgba(40, 48, 45, 0.18);
+
+  animation:
+    bookingModalIn
+    0.22s ease;
+}
+
+
+/* Header */
+
+.booking-modal-header {
+
+  padding:
+    22px 24px 18px;
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(102, 139, 128, 0.11),
+      rgba(102, 139, 128, 0.035)
+    );
+
+  border-bottom:
+    1px solid
+    rgba(102, 139, 128, 0.09);
+}
+
+
+.booking-modal-eyebrow {
+
+  display: block;
+
+  margin-bottom: 5px;
+
+  color:
+    var(--eucalyptus-dark);
+
+  font-size: 10px;
+
+  font-weight: 750;
+
+  letter-spacing: 0.08em;
+}
+
+
+.booking-modal-header h2 {
+
+  margin: 0;
+
+  font-size: 22px;
+
+  letter-spacing: -0.025em;
+}
+
+
+.booking-modal-header p {
+
+  margin:
+    5px 0 0;
+
+  color:
+    var(--text-soft);
+
+  font-size: 12px;
+}
+
+
+.booking-close-button {
+
+  flex:
+    0 0 auto;
+
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: 11px;
+
+  background:
+    rgba(255, 255, 255, 0.65);
+
+  color:
+    var(--text-soft);
+
+  font-size: 19px;
+
+  transition:
+    background 0.15s ease,
+    transform 0.12s ease;
+}
+
+
+.booking-close-button:hover {
+
+  background:
+    white;
+}
+
+
+.booking-close-button:active {
+
+  transform:
+    scale(0.95);
+}
+
+
+/* Body */
+
+.booking-modal-body {
+
+  padding:
+    22px 24px 24px;
+}
+
+
+.booking-context {
+
+  margin-bottom: 22px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    10px;
+}
+
+
+.booking-context-item {
+
+  padding:
+    12px 14px;
+
+  background:
+    var(--surface-soft);
+
+  border-radius:
+    13px;
+}
+
+
+.booking-context-item span {
+
+  display: block;
+
+  margin-bottom: 4px;
+
+  color:
+    var(--text-soft);
+
+  font-size: 10px;
+}
+
+
+.booking-context-item strong {
+
+  display: block;
+
+  overflow-wrap: anywhere;
+
+  font-size: 12px;
+}
+
+
+/* Form */
+
+.booking-field {
+
+  margin-bottom: 17px;
+}
+
+
+.booking-field label {
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+.booking-field input,
+.booking-field select {
+
+  width: 100%;
+  height: 48px;
+
+  padding:
+    0 13px;
+
+  border:
+    1px solid
+    rgba(66, 83, 77, 0.14);
+
+  border-radius:
+    13px;
+
+  outline: 0;
+
+  background:
+    white;
+
+  color:
+    var(--text);
+
+  font-size:
+    14px;
+
+  transition:
+    border 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+.booking-field input:focus,
+.booking-field select:focus {
+
+  border-color:
+    rgba(102, 139, 128, 0.65);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(102, 139, 128, 0.09);
+}
+
+
+.booking-field select:disabled {
+
+  cursor: not-allowed;
+
+  background:
+    var(--surface-soft);
+
+  color:
+    var(--text-soft);
+}
+
+
+.booking-time-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    12px;
+}
+
+
+.booking-field-hint {
+
+  margin-top:
+    6px;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    10px;
+
+  line-height:
+    1.5;
+}
+
+
+/* Warning / Error */
+
+.booking-message {
+
+  margin:
+    4px 0 18px;
+
+  padding:
+    13px 14px;
+
+  border-radius:
+    13px;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.65;
+
+  white-space:
+    pre-line;
+}
+
+
+.booking-message.warning {
+
+  background:
+    var(--terracotta-soft);
+
+  color:
+    #825341;
+}
+
+
+.booking-message.error {
+
+  background:
+    #f3e4df;
+
+  color:
+    #8a4f43;
+}
+
+
+.booking-message.success {
+
+  background:
+    var(--eucalyptus-soft);
+
+  color:
+    var(--eucalyptus-dark);
+}
+
+
+/* Footer */
+
+.booking-actions {
+
+  margin-top:
+    22px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    0.8fr 1.2fr;
+
+  gap:
+    10px;
+}
+
+
+.booking-cancel-button,
+.booking-submit-button {
+
+  min-height:
+    48px;
+
+  border: 0;
+
+  border-radius:
+    13px;
+
+  font-weight: 700;
+
+  transition:
+    0.14s ease;
+}
+
+
+.booking-cancel-button {
+
+  background:
+    var(--surface-soft);
+
+  color:
+    var(--text-soft);
+}
+
+
+.booking-submit-button {
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--eucalyptus),
+      var(--eucalyptus-dark)
+    );
+
+  color:
+    white;
+
+  box-shadow:
+    0 8px 22px
+    rgba(79, 116, 106, 0.17);
+}
+
+
+.booking-cancel-button:active,
+.booking-submit-button:active {
+
+  transform:
+    scale(0.98);
+}
+
+
+.booking-submit-button:disabled {
+
+  cursor: wait;
+
+  opacity: 0.6;
+}
+
+
+/* Animation */
+
+@keyframes bookingBackdropIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes bookingModalIn {
+
+  from {
+    opacity: 0;
+    transform:
+      translateY(10px)
+      scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .booking-modal {
+
+    padding: 0;
+
+    place-items:
+      end center;
+  }
+
+
+  .booking-modal-card {
+
+    width: 100%;
+
+    max-height: 92vh;
+
+    border-radius:
+      22px 22px 0 0;
+  }
+
+
+  .booking-modal-header {
+
+    padding:
+      18px 18px 15px;
+  }
+
+
+  .booking-modal-body {
+
+    padding:
+      18px;
+  }
+
+
+  .booking-context {
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .booking-time-grid {
+
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+
+  .booking-field input,
+  .booking-field select {
+
+    height: 50px;
+
+    font-size: 16px;
+  }
+
+
+  .booking-actions {
+
+    position: sticky;
+
+    bottom: 0;
+
+    padding-top: 8px;
+
+    background:
+      var(--surface);
+  }
+
+}
