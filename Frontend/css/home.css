@@ -678,10 +678,11 @@
   }
 
 
-  .home-user-mini strong {
+.home-user-mini
+#userMiniName {
 
-    max-width:
-      135px;
-  }
+  max-width:
+    65px;
+}
 
 }

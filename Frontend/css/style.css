@@ -1904,19 +1904,6 @@ body.home-mode
 
 @media (max-width: 390px) {
 
-  .nav-text {
-
-    font-size:
-      9px;
-  }
-
-
-  .home-user-mini
-  #userMiniName {
-
-    max-width:
-      65px;
-  }
 
 
   .room-title {
