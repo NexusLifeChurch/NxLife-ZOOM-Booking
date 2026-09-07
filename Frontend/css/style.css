@@ -782,20 +782,6 @@ body.home-mode
 }
 
 
-#dateSubTitle {
-
-  margin-top:
-    5px;
-
-  color:
-    var(--text-soft);
-
-  font-size:
-    12px;
-
-}
-
-
 .home-user-mini {
 
   display:
@@ -877,210 +863,6 @@ body.home-mode
     11px;
 
 }
-
-
-/* =========================================
-   Date navigator
-========================================= */
-
-
-.date-navigator {
-
-  margin-top:
-    16px;
-
-  padding:
-    6px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  width:
-    fit-content;
-
-  gap:
-    4px;
-
-  background:
-    rgba(255, 253, 249, 0.88);
-
-  border:
-    1px solid var(--border);
-
-  border-radius:
-    15px;
-
-  box-shadow:
-    0 5px 18px
-    rgba(56, 65, 61, 0.04);
-
-}
-
-
-.date-nav-button {
-
-  height:
-    38px;
-
-  padding:
-    0 13px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    7px;
-
-  border:
-    0;
-
-  border-radius:
-    10px;
-
-  background:
-    transparent;
-
-  color:
-    var(--text);
-
-  font-size:
-    12px;
-
-  font-weight:
-    650;
-
-  transition:
-    background 0.15s ease,
-    transform 0.15s ease;
-
-}
-
-
-.date-nav-button:hover:not(:disabled) {
-
-  background:
-    var(--surface-soft);
-
-}
-
-
-.date-nav-button:active:not(:disabled) {
-
-  transform:
-    scale(0.97);
-
-}
-
-
-.date-nav-button:disabled {
-
-  cursor:
-    default;
-
-  opacity:
-    0.28;
-
-}
-
-
-.today-button.active {
-
-  background:
-    var(--eucalyptus-soft);
-
-  color:
-    var(--eucalyptus-dark);
-
-}
-
-
-.nav-arrow {
-  font-size:
-    20px;
-
-  line-height:
-    1;
-}
-
-
-.date-picker-control {
-
-  position:
-    relative;
-
-  width:
-    40px;
-
-  height:
-    38px;
-
-  display:
-    grid;
-
-  place-items:
-    center;
-
-  overflow:
-    hidden;
-
-  border-radius:
-    10px;
-
-  font-size:
-    16px;
-
-}
-
-
-.date-picker-control:hover {
-
-  background:
-    var(--surface-soft);
-
-}
-
-
-.date-picker-control input {
-
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  width:
-    100%;
-
-  height:
-    100%;
-
-  opacity:
-    0;
-
-  cursor:
-    pointer;
-
-}
-
-
-/* =========================================
-   Current mobile room
-========================================= */
-
-
-.current-room-indicator {
-
-  display:
-    none;
-
-}
-
 
 /* =========================================
    Rooms
@@ -1976,17 +1758,6 @@ body.home-mode
   }
 
 
-  #dateSubTitle {
-
-    margin-top:
-      3px;
-
-    font-size:
-      10px;
-
-  }
-
-
   .home-user-mini {
 
     gap:
@@ -2020,137 +1791,7 @@ body.home-mode
   }
 
 
-  /* Navigator always visible */
-
-  .date-navigator {
-
-    width:
-      100%;
-
-    margin-top:
-      10px;
-
-    padding:
-      4px;
-
-    display:
-      grid;
-
-    grid-template-columns:
-      1fr 0.85fr 1fr 38px;
-
-    gap:
-      3px;
-
-    border-radius:
-      13px;
-
-  }
-
-
-  .date-nav-button {
-
-    width:
-      100%;
-
-    height:
-      36px;
-
-    justify-content:
-      center;
-
-    padding:
-      0 5px;
-
-    font-size:
-      10px;
-
-  }
-
-
-  .nav-arrow {
-    font-size:
-      18px;
-  }
-
-
-  .date-picker-control {
-
-    width:
-      38px;
-
-    height:
-      36px;
-  }
-
-
   /* Current Room always visible */
-
-  .current-room-indicator {
-
-    margin-top:
-      7px;
-
-    min-height:
-      29px;
-
-    padding:
-      5px 9px;
-
-    display:
-      flex;
-
-    align-items:
-      center;
-
-    gap:
-      7px;
-
-    overflow:
-      hidden;
-
-    border-radius:
-      9px;
-
-    background:
-      rgba(102, 139, 128, 0.09);
-
-  }
-
-
-  .current-room-indicator span {
-
-    flex:
-      0 0 auto;
-
-    color:
-      var(--text-soft);
-
-    font-size:
-      9px;
-
-  }
-
-
-  .current-room-indicator strong {
-
-    overflow:
-      hidden;
-
-    color:
-      var(--eucalyptus-dark);
-
-    text-overflow:
-      ellipsis;
-
-    white-space:
-      nowrap;
-
-    font-size:
-      10px;
-
-  }
-
 
   /* Rooms vertical */
 
@@ -2292,14 +1933,10 @@ body.home-mode
 
 
 /* =========================================
-   MOBILE NAVIGATION + READABILITY
+   MOBILE READABILITY
 ========================================= */
 
 @media (max-width: 700px) {
-
-/* =========================================
-   MOBILE READABILITY
-========================================= */
   .home-user-mini {
 
     font-size:
@@ -2370,24 +2007,3 @@ body.home-mode
   }
 
 }
-
-
-/* =========================================
-   MOBILE - HIDE CURRENT ROOM INDICATOR
-========================================= */
-
-@media (max-width: 700px) {
-
-  .current-room-indicator {
-
-    display:
-      none !important;
-
-  }
-
-}
-
-/* =========================================
-   DESKTOP SIDEBAR V1
-========================================= */
-

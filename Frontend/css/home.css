@@ -791,40 +791,6 @@
 
 @media (max-width: 700px) {
 
-  .timeline-room-card {
-
-    border:
-      1px solid rgba(60, 76, 70, 0.08);
-
-    box-shadow:
-      0 10px 28px rgba(48, 58, 54, 0.05);
-  }
-
-
-  .timeline-room-header {
-
-    background:
-      #f3f7f4;
-  }
-
-
-  .timeline-room-label {
-
-    color:
-      #58796f;
-
-    font-weight:
-      800;
-  }
-
-
-  .timeline-room-name {
-
-    color:
-      #2c3935;
-  }
-
-
   .add-booking-button {
 
     background:
