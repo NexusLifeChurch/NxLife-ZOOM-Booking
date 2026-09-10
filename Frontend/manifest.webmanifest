@@ -1,0 +1,20 @@
+{
+  "name": "NxLife ZOOM Booking",
+  "short_name": "ZOOM Booking",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f2ec",
+  "theme_color": "#668b80",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

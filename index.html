@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NxLife Zoom Booking</title>
+</head>
+
+<body>
+
+  <noscript>
+    กรุณาเปิดใช้งาน JavaScript เพื่อใช้งาน NxLife Zoom Booking
+  </noscript>
+
+  <script>
+    (async function () {
+
+      try {
+
+        const response =
+          await fetch(
+            './Frontend/index.html',
+            {
+              cache: 'no-store'
+            }
+          );
+
+        if (!response.ok) {
+          throw new Error(
+            'Unable to load Frontend/index.html'
+          );
+        }
+
+        let html =
+          await response.text();
+
+        html =
+          html.replace(
+            /<head(\s[^>]*)?>/i,
+            function (match) {
+
+              return (
+                match +
+                '\n  <base href="./Frontend/">'
+              );
+
+            }
+          );
+
+        document.open();
+        document.write(html);
+        document.close();
+
+      } catch (error) {
+
+        console.error(
+          'NxLife Zoom Booking bootstrap error:',
+          error
+        );
+
+        document.body.innerHTML =
+          '<div style="' +
+          'font-family:system-ui,sans-serif;' +
+          'padding:24px;' +
+          'line-height:1.6' +
+          '">' +
+
+          '<h2>' +
+          'ไม่สามารถเปิด NxLife Zoom Booking ได้' +
+          '</h2>' +
+
+          '<p>' +
+          'กรุณารีเฟรชหน้าอีกครั้ง ' +
+          'หรือติดต่อผู้ดูแลระบบ' +
+          '</p>' +
+
+          '</div>';
+
+      }
+
+    })();
+  </script>
+
+</body>
+</html>
