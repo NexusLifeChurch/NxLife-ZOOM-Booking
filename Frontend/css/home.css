@@ -234,7 +234,7 @@
 
 
 /* =========================================
-   Zoom Room Header
+   Zoom Room Header แก้สีหัวตาราง
 ========================================= */
 
 .room-section-header {
@@ -242,13 +242,13 @@
   background:
     linear-gradient(
       135deg,
-      rgba(102, 139, 128, 0.10),
-      rgba(102, 139, 128, 0.045)
+      rgba(102, 139, 128, 0.22),
+      rgba(102, 139, 128, 0.10)
     );
 
   border-bottom:
     1px solid
-    rgba(102, 139, 128, 0.10);
+    rgba(102, 139, 128, 0.16);
 }
 
 
@@ -684,5 +684,47 @@
   max-width:
     65px;
 }
+
+}
+/* =========================================
+   MOBILE STICKY DATE ONLY
+========================================= */
+
+@media (max-width: 700px) {
+
+  .home-sticky-header {
+
+    display:
+      contents;
+  }
+
+
+  .home-header-main {
+
+    margin:
+      0 -14px;
+
+    padding:
+      13px 14px 9px;
+
+    background:
+      rgba(245, 242, 236, 0.97);
+  }
+
+
+  .date-navigator {
+
+    position:
+      sticky;
+
+    top:
+      0;
+
+    z-index:
+      500;
+
+    margin-top:
+      0;
+  }
 
 }
